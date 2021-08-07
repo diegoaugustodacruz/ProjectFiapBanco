@@ -1,0 +1,28 @@
+package br.com.fiap.tdss.bean;
+
+public class Produto {
+
+	String nome;
+	
+	int quantidade;
+	
+	float preco, desconto;
+	
+	public Produto() {
+		
+	}
+
+	public Produto(String nome, int quantidade, float preco, float desconto) {
+		super();
+		this.nome = nome;
+		this.quantidade = quantidade;
+		this.preco = preco;
+		this.desconto = desconto;
+	}
+	
+	
+	
+	
+	
+	
+}

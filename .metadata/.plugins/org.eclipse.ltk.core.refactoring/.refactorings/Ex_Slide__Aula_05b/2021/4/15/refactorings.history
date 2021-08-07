@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;Data.java&apos; to &apos;br.com.fiap.tds.bean.Cor.java&apos;&#x0D;&#x0A;- Original project: &apos;Ex_Slide__Aula_05b&apos;&#x0D;&#x0A;- Destination element: &apos;br.com.fiap.tds.bean.Cor.java&apos;&#x0D;&#x0A;- Original element: &apos;br.com.fiap.tds.bean.Data.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="=Ex_Slide_Aula_05/src&lt;br.com.fiap.tds.bean{Cor.java" element1="/src&lt;br.com.fiap.tds.bean{Data.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1618016083225" units="1" version="1.0"/>
+</session>

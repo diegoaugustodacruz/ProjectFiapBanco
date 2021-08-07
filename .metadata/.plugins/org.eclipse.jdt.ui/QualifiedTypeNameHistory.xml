@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="br.com.fiap.tds.bean.BaseElevador"/>
+    <fullyQualifiedTypeName name="br.com.fiap.tds.bean.Elevador"/>
+    <fullyQualifiedTypeName name="br.com.fiap.tds.ltp.sistemabanco.entidades.ContaCorrente"/>
+    <fullyQualifiedTypeName name="java.lang.Math"/>
+    <fullyQualifiedTypeName name="br.com.fiap.tds.bean.Data"/>
+    <fullyQualifiedTypeName name="br.com.fiap.tds.bean.Profissao"/>
+    <fullyQualifiedTypeName name="sun.awt.www.content.image.jpeg"/>
+    <fullyQualifiedTypeName name="org.graalvm.compiler.hotspot.aarch64.AArch64HotSpotJumpToExceptionHandlerInCallerOp"/>
+    <fullyQualifiedTypeName name="br.com.fiap.tds.bean.Produto"/>
+    <fullyQualifiedTypeName name="br.com.fiap.tds.bean.ProdutoPerecivel"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+</qualifiedTypeNameHistroy>

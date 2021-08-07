@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;br.com.tdss.view&apos; to &apos;br.com.fiap.tdss.view&apos;&#x0A;- Original project: &apos;Aula11_Vetor&apos;&#x0A;- Original element: &apos;Aula11_Vetor/src/br.com.tdss.view&apos;&#x0A;- Renamed element: &apos;Aula11_Vetor/src/br.com.fiap.tdss.view&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings&#x0A;- Rename subpackages of the package" description="Rename package &apos;br.com.tdss.view&apos;" flags="589830" hierarchical="true" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;br.com.tdss.view" name="br.com.fiap.tdss.view" qualified="false" references="true" stamp="1628294829685" textual="false" version="1.0"/>
+</session>

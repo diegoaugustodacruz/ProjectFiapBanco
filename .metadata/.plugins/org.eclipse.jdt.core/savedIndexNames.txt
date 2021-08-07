@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+/home/accountfy/Documentos/FIAP/DOMAIN DRIVEN DESIGN/2 Semestre/Projetos/.metadata/.plugins/org.eclipse.jdt.core
+646308851.index
+832336380.index

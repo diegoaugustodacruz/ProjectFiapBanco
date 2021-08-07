@@ -1,0 +1,37 @@
+package br.com.fiap.tdss.view;
+
+import javax.swing.JOptionPane;
+
+import br.com.fiap.tdss.bean.Produto;
+
+public class Ex01 {
+	public static void main(String[] args) {
+		
+		//Ler a quantidade de produtos
+		int n = Integer.parseInt(JOptionPane.showInputDialog("Digite a quantidade de produtos: "));
+		
+		//Declarar e instanciar o vetor de produtos
+		Produto[] vetor = new Produto[n];
+		
+		//Laço de repetição para ler os dados do produto e adicionar no vetor
+		for(int i = 0; i<vetor.length; i++) {
+			
+			int quantidade = Integer.parseInt(JOptionPane.showInputDialog("Digite a quantidade de produtos: "));
+			double preco = Integer.parseInt(JOptionPane.showInputDialog("Digite a quantidade de produtos: "));
+			double desconto = Integer.parseInt(JOptionPane.showInputDialog("Digite a quantidade de produtos: "));
+			
+			quantidade = 
+			
+			
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

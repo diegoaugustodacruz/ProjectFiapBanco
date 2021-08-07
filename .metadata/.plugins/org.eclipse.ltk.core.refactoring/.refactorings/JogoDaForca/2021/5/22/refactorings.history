@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;br.com.fiap.fds.view.Net.java&apos; to &apos;JogodaForca.java&apos;&#x0D;&#x0A;- Original project: &apos;JogoDaForca&apos;&#x0D;&#x0A;- Original element: &apos;br.com.fiap.fds.view.Net.java&apos;&#x0D;&#x0A;- Renamed element: &apos;br.com.fiap.fds.view.JogodaForca.java&apos;" description="Rename compilation unit &apos;Net.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;br.com.fiap.fds.view{Net.java" name="JogodaForca.java" references="false" stamp="1621992440453" version="1.0"/>
+</session>
