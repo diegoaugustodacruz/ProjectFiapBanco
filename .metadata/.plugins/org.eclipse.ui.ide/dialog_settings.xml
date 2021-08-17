@@ -6,14 +6,19 @@
 		</list>
 	</section>
 	<section name="ExternalProjectImportWizard">
-		<item key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED" value="true"/>
+		<item key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_NESTED_PROJECTS" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="/home/accountfy/Documentos/FIAP/DOMAIN DRIVEN DESIGN/2 Semestre/Projetos/Endorfina"/>
+			<item value="/home/accountfy/Documentos/FIAP/DOMAIN DRIVEN DESIGN/2 Semestre/Endorfina"/>
 			<item value=""/>
 			<item value="C:\Users\WINDOWS\Downloads"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
 			<item value="/media/accountfy/62E6FFCBE6FF9E0B/td.zip"/>
 			<item value="C:\Users\WINDOWS\Downloads\Projeto Traveller.zip"/>
 			<item value="C:\Users\WINDOWS\Downloads\Endorfina.zip"/>
