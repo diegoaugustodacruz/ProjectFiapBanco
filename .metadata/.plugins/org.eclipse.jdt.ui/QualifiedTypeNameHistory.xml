@@ -13,6 +13,6 @@
     <fullyQualifiedTypeName name="br.com.fiap.tds.bean.Produto"/>
     <fullyQualifiedTypeName name="br.com.fiap.tds.bean.ProdutoPerecivel"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
-    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 </qualifiedTypeNameHistroy>
