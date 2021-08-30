@@ -65,5 +65,8 @@ public class Aluno {
 		return soma/notas.size();
 	}
 	
-
+	@Override
+	public String toString() {
+		return "RM: " + rm + " Nome: " + nome + " Idade: " + idade + " Notas: " + notas + " Media" + calcularMedia();
+	}
 }

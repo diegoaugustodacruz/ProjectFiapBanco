@@ -96,15 +96,23 @@ public class Exercicio {
 			
 			 switch (opcao) {
 				case 1:
-					for(int i = 0; i<alunos.size();i++) {
-						System.out.println("Aluno: " + alunos.get(i).getNome() + "\nMedia: " + alunos.get(i).calcularMedia());
-					}
+//					for(int i = 0; i<alunos.size();i++) {
+//						System.out.println("Aluno: " + alunos.get(i).getNome() + "\nMedia: " + alunos.get(i).calcularMedia());
+//					}
+//					
+					alunos.forEach(aluno -> System.out.println(aluno.getNome() + " " + aluno.calcularMedia()));
+
 					break;
 					
 				case 2:
 					for(int i = 0; i<alunos.size();i++) {
 						
 						System.out.println("Alunos com média acima de 6: ");
+						for(Aluno aluno: alunos) {
+							if(aluno.calcularMedia()>6) {
+								System.out.println(aluno.getNome() + " " + aluno.getIdade());
+							}
+						}
 					}
 					
 					
@@ -112,11 +120,41 @@ public class Exercicio {
 					
 				case 3:
 					System.out.println("Alunos com idade acima de 30 anos: ");
+					for(Aluno item: alunos) {
+						if(item.getIdade()>30) {
+							System.out.println(item.getNome() + " " + item.getIdade());
+						}
+					}
 					break;
 				
 				case 4:
 					System.out.println("Excluindo alunos que repetiram de ano: ");
-					break;
+					
+					//Solucao 1
+					List<Aluno> toRemove = new ArrayList<>();
+					
+					for(Aluno aluno:alunos) {
+						if(aluno.calcularMedia()<3)
+							toRemove.add(aluno);
+					}
+					
+					alunos.removeAll(toRemove);
+					
+
+					
+					//Solucao 2					
+//					for(int i = 0; i<alunos.size(); i++) {
+//						if(alunos.get(i).calcularMedia()<3) {
+//							alunos.remove(i); //remove o elemento a posição
+//							i--; //volta para o index para validar o elemento que ficou no lugar do elemento removido
+//						}
+//					}
+//					break;
+					
+//					
+					//Solucao 3					
+//					alunos.removeIf(aluno -> aluno.calcularMedia()<3);
+					
 				
 				case 0:
 					System.out.println("Saindo do sistema...");
