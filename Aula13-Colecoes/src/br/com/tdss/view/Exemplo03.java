@@ -1,7 +1,8 @@
 package br.com.tdss.view;
 
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -61,8 +62,12 @@ public class Exemplo03 {
 		chaves.forEach(sigla -> System.out.println(sigla));
 				
 		//Recuperar os valores do mapeamento
-		Collection<String> valores = mapa.values();
-				
+		//Collection<String> valores = mapa.values();
+		
+		//Recupera a collection de valores do mapa e instancia uma lista com esses valores
+		List<String> valores = new ArrayList<>(mapa.values());
+		
+		
 		//Exibir os valores
 		System.out.println("\nValores do mapeamento: ");
 		for(String churros: valores) {

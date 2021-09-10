@@ -32,6 +32,7 @@
 		<item key="WizardZipFileResourceExportPage1.STORE_CREATE_STRUCTURE_ID" value="true"/>
 		<item key="WizardZipFileResourceExportPage1.STORE_COMPRESS_CONTENTS_ID" value="true"/>
 		<list key="WizardZipFileResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="/home/accountfy/Área de Trabalho/Untitled.zip"/>
 			<item value="C:\Users\WINDOWS\OneDrive - Fiap-Faculdade de Informática e Administração Paulista\GLOBAL SOLUTION - 01\JAVA\Projeto Traveller.zip"/>
 			<item value="C:\Users\WINDOWS\OneDrive - Fiap-Faculdade de Informática e Administração Paulista\DOMAIN DRIVEN DESIGN\Check Point 02 e 03\Clinica Veterinaria.zip"/>
 			<item value="C:\Users\WINDOWS\OneDrive - Fiap-Faculdade de Informática e Administração Paulista\CHALLENGE\2ª Entrega\Domain Driven Design\Endorfina.zip"/>

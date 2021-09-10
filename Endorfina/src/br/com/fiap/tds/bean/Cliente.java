@@ -10,15 +10,15 @@ public class Cliente extends Usuario{
 	}
 
 
-	public Cliente(int codigo, int anoDeNascimento, String nome, String email, String redeSocial, Hobby hobby,
+	public Cliente(int anoDeNascimento, String nome, String email, String redeSocial, Hobby hobby,
 			Telefone telefone, Endereco endereco, String tipoDeProcura) {
-		super(codigo, anoDeNascimento, nome, email, redeSocial, hobby, telefone, endereco);
+		super(anoDeNascimento, nome, email, redeSocial, hobby, telefone, endereco);
 		this.tipoDeProcura = tipoDeProcura;
 	}
 
 	
 	public String exibirDadosUsuario() {
-		return "Código Usuário: " + codigo + ", Nome do Usuário: " + nome + ", Email: " + email
+		return "Cï¿½digo Usuï¿½rio: " + ", Nome do Usuï¿½rio: " + nome + ", Email: " + email
 				+ ", Rede Social: " + redeSocial + ", " +  ", Ano de Nascimento: "
 				+ anoDeNascimento + ", Tipo de procura: " + tipoDeProcura;
 	}
