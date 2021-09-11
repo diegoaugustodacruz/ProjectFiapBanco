@@ -2,16 +2,16 @@ package br.com.fiap.tds.view;
 
 import java.util.Scanner;
 
-import br.com.fiap.tds.bo.ProdutoBO;
 import br.com.fiap.tds.exception.DescontoNegativoException;
 import br.com.fiap.tds.exception.ValorBaixoException;
+import br.com.fiap.tds.service.ProdutoService;
 
 public class Exemplo02 {
 	
 	public static void main(String[] args) {
 		
 		//Instanciar o ProdutoBO
-		ProdutoBO bo = new ProdutoBO();	
+		ProdutoService bo = new ProdutoService();	
 		
 		Scanner leitor = new Scanner(System.in);
 
