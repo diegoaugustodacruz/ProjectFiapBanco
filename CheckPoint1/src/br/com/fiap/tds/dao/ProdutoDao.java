@@ -46,8 +46,20 @@ public class ProdutoDao {
 
 	}
 	
-	public void editar() {
+	public void editar(int codigo, String nomeProduto, double valor, int quantidade) {
+		Produto produto;
+
+		if(mapa.containsKey(codigo)) {
+			produto = mapa.get(codigo);
+			produto = new Produto(codigo, nomeProduto, valor, quantidade);
+			mapa.put(codigo, produto);
+
+		}else {			
+			produto = null; 	
+			}	
+
 		
+	
 	}	
 	
 	public void remover(int codigo) {

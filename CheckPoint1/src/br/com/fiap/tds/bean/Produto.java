@@ -85,7 +85,8 @@ public class Produto {
 
 	
 	public String toString() {
-		return "Produto: " + nome + 
+		return "Código" + codigo
+				+ "\nProduto: " + nome + 
 				"\nQuantidade: " + quantidade +
 				"\nValor: R$" + valor;
 	}

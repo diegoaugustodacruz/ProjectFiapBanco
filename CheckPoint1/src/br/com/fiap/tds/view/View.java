@@ -50,11 +50,18 @@ public class View {
 					break;
 					
 				case 4:
-					System.out.println("Finalizando o sistema");
+					codigo = Integer.parseInt(JOptionPane.showInputDialog("Digite o codigo do produto para editar seus valores: "));
+					String nomeProduto = JOptionPane.showInputDialog("Digite o nome do produto: ");
+					double valor = Double.parseDouble(JOptionPane.showInputDialog("Digite o valor do produto"));
+					int quantidade = Integer.parseInt(JOptionPane.showInputDialog("Digite a quantidade do produto: "));
+					
+					dao.editar(codigo, nomeProduto, valor, quantidade);
+					
 					break;
 					
 				case 5:
-					System.out.println("Finalizando o sistema");
+					codigo = Integer.parseInt(JOptionPane.showInputDialog("Digite o codigo do produto para remove-lo: "));
+					dao.remover(codigo);
 					break;
 					
 				case 6:
@@ -70,7 +77,7 @@ public class View {
 			}
 			
 			
-		}while(opcao!=3);
+		}while(opcao!=7);
 
 	}
 	
