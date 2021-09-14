@@ -1,8 +1,9 @@
 package br.com.fiap.tds.dao;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import javax.swing.JOptionPane;
+
 import br.com.fiap.tds.bean.Produto;
 
 public class ProdutoDao {
@@ -11,33 +12,38 @@ public class ProdutoDao {
 	Map<Integer, Produto> mapa = new HashMap<Integer, Produto>();
 
 	
-	public void cadastrar(int codigo, String nomeProduto) {
+	public void cadastrar(int codigo, String nomeProduto, double valor, int quantidade) {
 		
 		Produto produto;
 
 		if(mapa.containsKey(codigo)) {
 			produto = mapa.get(codigo);
 		}else {			
-			produto = new Produto(codigo); 	
+			produto = new Produto(); 	
 			}
 		
-		do {
-			Double valor = Double.parseDouble(JOptionPane.showInputDialog("Digite o valor: "));
-			int quantidade = Integer.parseInt(JOptionPane.showInputDialog("Digite a quantidade"));
-			
-			produto = new Produto(codigo, nomeProduto, valor, quantidade);
-			
-		}while(JOptionPane.showConfirmDialog(null, "Quer continuar cadastrando?") == JOptionPane.YES_OPTION);					
+		produto = new Produto(codigo, nomeProduto, valor, quantidade);
+
 		
 		mapa.put(codigo, produto);
 	}
 	
-	public Map<Integer, Produto> listar(){
-		return mapa;
+	public Collection<Produto> listar(){
+		Collection<Produto> valores = mapa.values();
+		return valores;
+		
 	}
 	
-	public void pesquisarPorCodigo() {
-		
+	public Produto pesquisarPorCodigo(int codigo) {	
+		Produto produto;		
+		if(mapa.containsKey(codigo)) {
+			produto = mapa.get(codigo); 
+			return produto;
+			
+		}else{
+			return null;
+		}
+
 	}
 	
 	public void editar() {
@@ -45,11 +51,19 @@ public class ProdutoDao {
 	}	
 	
 	public void remover(int codigo) {
+		if(mapa.containsKey(codigo)) {			
+			mapa.remove(codigo);
+		}
 		
 	}
 	
-	public void pesquisarPorNome() {
-		
-	}
+//	public Produto pesquisarPorNome(String nome) {
+//		Produto busca = null;
+//		if(mapa.containsValue(nome)) {
+//			int chave = mapa.keySet();
+//			return busca;
+//		}
+//		
+//	}
 	
 }

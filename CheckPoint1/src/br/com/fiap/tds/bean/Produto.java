@@ -1,11 +1,10 @@
 package br.com.fiap.tds.bean;
 
-import java.util.Set;
 
 public class Produto {
 	
 	private int codigo;
-
+	
 	private String nome;
 
 	private double valor;
@@ -16,12 +15,9 @@ public class Produto {
 	
 	public Produto() {
 		
-	}
+	}	
 	
-	public Produto(int codigo) {
-		this.codigo = codigo;
-	}
-	
+
 	public Produto(int codigo, String nome, double valor, int quantidade) {
 		super();
 		this.codigo = codigo;
@@ -30,45 +26,47 @@ public class Produto {
 		this.quantidade = quantidade;
 	}
 	
-	public Produto( String nome, double valor, int quantidade) {
-		super();
-		this.nome = nome;
-		this.valor = valor;
-		this.quantidade = quantidade;
-	}
-
+	
 
 	public int getCodigo() {
 		return codigo;
 	}
 
+
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
+
 
 	public String getNome() {
 		return nome;
 	}
 
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 
 	public double getValor() {
 		return valor;
 	}
 
+
 	public void setValor(double valor) {
 		this.valor = valor;
 	}
+
 
 	public int getQuantidade() {
 		return quantidade;
 	}
 
+
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
+
 
 	public double calcularDesconto(float porcentagem) {
 		return valor*(1-(porcentagem)/100);
@@ -92,6 +90,7 @@ public class Produto {
 				"\nValor: R$" + valor;
 	}
 		
-		
+	
+	
 
 }
