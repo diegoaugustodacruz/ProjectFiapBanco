@@ -65,7 +65,9 @@ public class View {
 					break;
 					
 				case 6:
-					System.out.println("Finalizando o sistema");
+					nomeProduto = JOptionPane.showInputDialog("Digite o nome do produto: ");
+					System.out.println(dao.pesquisarPorNome(nomeProduto));
+					
 					break;
 
 				case 7:

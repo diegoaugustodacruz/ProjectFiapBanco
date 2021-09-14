@@ -1,7 +1,9 @@
 package br.com.fiap.tds.dao;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import br.com.fiap.tds.bean.Produto;
@@ -69,13 +71,21 @@ public class ProdutoDao {
 		
 	}
 	
-//	public Produto pesquisarPorNome(String nome) {
-//		Produto busca = null;
-//		if(mapa.containsValue(nome)) {
-//			int chave = mapa.keySet();
-//			return busca;
-//		}
-//		
-//	}
+	public Produto pesquisarPorNome(String nome) {
+		
+		List<Produto> valores = new ArrayList<>(mapa.values());
+		Produto resultado = null;
+		
+		for(Produto busca: valores) {
+			if(busca.getNome().equals(nome)) {
+				resultado = busca;
+			}else {
+				resultado = null;
+			}
+		}
+		
+		return resultado;
+		
+	}
 	
 }
