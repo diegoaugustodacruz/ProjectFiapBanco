@@ -16,8 +16,8 @@ public class View {
 
 		do {
 			
-			opcao = Integer.parseInt(JOptionPane.showInputDialog("Escolha: \n1-Cadastrar \n2-Listar \n3-Consultar por código"
-					+ "\n4-Editar \n5-Remover \n6-Pesquisar por nome  \n7-Sair"));
+			opcao = Integer.parseInt(JOptionPane.showInputDialog("Escolha: \n1 - Cadastrar \n2 - Listar \n3 - Consultar por código"
+					+ "\n4 - Editar \n5 - Remover \n6 - Pesquisar por nome  \n7 - Sair"));
 			
 			
 			
