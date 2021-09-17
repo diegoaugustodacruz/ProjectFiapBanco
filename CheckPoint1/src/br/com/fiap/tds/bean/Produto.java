@@ -130,7 +130,7 @@ public class Produto {
 		return "Código; " + codigo
 				+ "\nProduto: " + nome + 
 				"\nQuantidade: " + quantidade +
-				"\nValor: R$" + valor;
+				"\nValor: R$" + valor + "\n";
 	}
 		
 	

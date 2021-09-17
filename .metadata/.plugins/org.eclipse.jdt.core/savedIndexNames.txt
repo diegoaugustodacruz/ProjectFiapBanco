@@ -6,4 +6,3 @@ INDEX VERSION 1.131+/home/accountfy/Documentos/FIAP/DOMAIN DRIVEN DESIGN/2 Semes
 646308851.index
 832336380.index
 2259644135.index
-1422772256.index
