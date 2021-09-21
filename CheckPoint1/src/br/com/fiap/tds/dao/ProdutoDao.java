@@ -107,12 +107,10 @@ public class ProdutoDao {
 		for(Produto busca: valores) {
 			if(busca.getNome().equals(nome)) {
 				resultado = busca;
-			}else {
-				resultado = null;
 			}
 		}
-		
 		return resultado;
+		
 		
 	}
 	
