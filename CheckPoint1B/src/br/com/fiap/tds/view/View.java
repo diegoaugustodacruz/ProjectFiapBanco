@@ -49,7 +49,6 @@ public static void main(String[] args) {
 					int codigo = Integer.parseInt(JOptionPane.showInputDialog("Digite o codigo para consulta: "));
 					System.out.println(dao.pesquisarPorCodigo(codigo));
 
-					//JOptionPane.showMessageDialog(null, dao.pesquisarPorCodigo(codigo));
 					break;
 					
 				case 4:

@@ -13,15 +13,18 @@ public class ProdutoDao {
 	
 
 	/**
-	 * Cadastra um produto em uma base de dados
-	 * @param codigo codigo do produto
-	 * @param nomeProduto nome do produto
-	 * @param valor valor do produto
-	 * @param quantidade quantidade do produto
+	 * Cadastra um produto na base de dados
+	 * @param produto produto a ser cadastrado
 	 */
-	public void cadastrar(Produto produto) {		
+	public void cadastrar(Produto produto) {
+		Produto resultado;
+		if(mapa.containsKey(produto.getCodigo())) {
+			resultado = mapa.get(produto.getCodigo());
+		}else {
+			resultado = produto;
+		}
 		
-		mapa.put(produto.getCodigo(), produto);	
+		mapa.put(produto.getCodigo(), resultado);	
 		
 	}
 	/**
