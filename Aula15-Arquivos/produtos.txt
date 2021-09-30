@@ -1,0 +1,4 @@
+peru;1.0;comida
+batata;2.0;comida
+peru;10.0;comida
+batata;50.0;comida

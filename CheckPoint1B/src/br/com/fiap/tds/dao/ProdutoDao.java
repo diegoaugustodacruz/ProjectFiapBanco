@@ -56,10 +56,7 @@ public class ProdutoDao {
 	
 	/**
 	 * Edita as informacoes de um produto
-	 * @param codigo codigo de um produto cadastrado
-	 * @param nomeProduto novo nome de um produto
-	 * @param valor novo valor de um produto
-	 * @param quantidade nova quantidade de um produto
+	 * @param produto produto cadastrado
 	 */
 	public void editar(Produto produto) {
 

@@ -122,7 +122,7 @@ public class Produto {
 	 * Retorna as informações do produto	
 	 */
 	public String toString() {
-		return "Código; " + codigo
+		return "Código: " + codigo
 				+ "\nProduto: " + nome + 
 				"\nQuantidade: " + quantidade +
 				"\nValor: R$" + valor + "\n";
