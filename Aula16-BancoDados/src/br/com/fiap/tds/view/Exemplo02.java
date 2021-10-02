@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import br.com.fiap.tds.factory.ConnectionFactory;
+
 public class Exemplo02 {
 	
 	//Pesquisar todos os produtos
@@ -13,12 +15,10 @@ public class Exemplo02 {
 		Connection conexao = null;
 		
 		try {
-			//Registrar o driver		
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-
+			
 			//Obter uma conexao com o banco de dados (string conexao, usuario, senha)
-			conexao = DriverManager.getConnection("jdbc:oracle:thin:@oracle.fiap.com.br:1521:orcl", "rm86877", "050291");
-			System.out.println("Conectado no banco");
+			conexao = ConnectionFactory.getConnection();
+			System.out.println("Conectado no banco \n");
 			
 			
 			//Criar o objeto que executa o comando SQL no banco
@@ -34,7 +34,7 @@ public class Exemplo02 {
 				double valorProduto = rs.getDouble("VL_PRODUTO");
 				String nomeFornecedor = rs.getString("NM_FORNECEDOR");
 
-				System.out.println("ID: " + id + "\nNOME: " + nome + "\nDESCRICAO: " + descricaoProduto + "\nVALOR: " + valorProduto + "\nFORNECEDOR: " + nomeFornecedor);
+				System.out.println("ID: " + id + "\nNOME: " + nome + "\nDESCRICAO: " + descricaoProduto + "\nVALOR: " + valorProduto + "\nFORNECEDOR: " + nomeFornecedor + "\n");
 				}			
 			
 			

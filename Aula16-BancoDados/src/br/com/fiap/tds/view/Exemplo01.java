@@ -6,18 +6,18 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import br.com.fiap.tds.factory.ConnectionFactory;
+
 public class Exemplo01 {
 
 	public static void main(String[] args) {
 		
 		Connection conexao = null;
 		
-		try {
-			//Registrar o driver		
-			Class.forName("oracle.jdbc.driver.OracleDriver");
+		try {			
 
 			//Obter uma conexao com o banco de dados (string conexao, usuario, senha)
-			conexao = DriverManager.getConnection("jdbc:oracle:thin:@oracle.fiap.com.br:1521:orcl", "rm86877", "050291");
+			conexao = ConnectionFactory.getConnection();
 			System.out.println("Conectado no banco");
 			
 			
@@ -26,7 +26,7 @@ public class Exemplo01 {
 			
 			int linhasAfetadas = comando.executeUpdate("INSERT INTO TDSS_PRODUTO "
 					+ "(CD_PRODUTO, NM_PRODUTO, VL_PRODUTO, NM_FORNECEDOR, DS_PRODUTO) "
-					+ "VALUES (SQ_TB_PRODUTO.NEXTVAL, 'Celular Xiaomi', 1500, 'Aliexpress', 'Celular barato bom')");
+					+ "VALUES (SQ_TB_PRODUTO.NEXTVAL, 'Celular Apple', 5000, 'Americanas', 'macazinha')");
 			
 			System.out.println("Linhas cadastradas: " + linhasAfetadas);		
 			
