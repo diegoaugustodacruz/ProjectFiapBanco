@@ -34,4 +34,6 @@
     <fullyQualifiedTypeName name="com.sun.jdi.connect.spi.Connection"/>
     <fullyQualifiedTypeName name="java.sql.SQLException"/>
     <fullyQualifiedTypeName name="java.sql.Statement"/>
+    <fullyQualifiedTypeName name="br.com.fiap.tds.factory.ConnectionFactory"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
 </qualifiedTypeNameHistroy>

@@ -4,21 +4,18 @@ public class HobbyUsuario {
 
 	private int idHobby;
 	
-	private int idUsuario;
-	
-	private Hobby hobby;
-	
+	private int idUsuario;	
+
 		
 	public HobbyUsuario() {
 		
 	}
 
 
-	public HobbyUsuario(int idHobby, int idUsuario, Hobby hobby) {
+	public HobbyUsuario(int idHobby, int idUsuario) {
 		super();
 		this.idHobby = idHobby;
 		this.idUsuario = idUsuario;
-		this.hobby = hobby;
 	}
 
 
@@ -42,14 +39,6 @@ public class HobbyUsuario {
 	}
 
 
-	public Hobby getHobby() {
-		return hobby;
-	}
-
-
-	public void setHobby(Hobby hobby) {
-		this.hobby = hobby;
-	}
 
 
 	
