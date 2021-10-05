@@ -6,11 +6,11 @@ import java.sql.SQLException;
 
 import br.com.fiap.tds.bean.Usuario;
 
-public class UsuarioDao {
+public class UsuarioDAO {
 	
 	private Connection conexao;
 
-	public UsuarioDao(Connection conexao) {
+	public UsuarioDAO(Connection conexao) {
 		this.conexao = conexao;
 		
 	}
