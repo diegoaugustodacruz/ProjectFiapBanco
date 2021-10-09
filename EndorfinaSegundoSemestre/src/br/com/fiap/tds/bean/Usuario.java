@@ -83,14 +83,11 @@ public class Usuario {
 	}
 	
 	
-	
+	@Override
+	public String toString() {
+		return "Id: " + idUsuario + ", nome: " + nome + ", email: " + email + ", data cadastro: " + dataCadastro + ", data nascimento: " + dataNascimento;
+	}
 
-
-	
-	
-	
-
-	
 
 
 
