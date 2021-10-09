@@ -5,41 +5,50 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 import br.com.fiap.tds.bean.Produto;
-import br.com.fiap.tds.bo.ProdutoBo;
+import br.com.fiap.tds.dao.ProdutoDao;
 import br.com.fiap.tds.factory.ConnectionFactory;
 
-public class Exemplo03 {
-
+public class Exemplo04 {
+	
 	public static void main(String[] args) {
+		
 		Connection conexao = null;
 		
 		
 		try {
-			//Instanciar um Produto
-			Produto produto = new Produto();
-			
-			
-			//Ler os dados
-			Scanner leitor = new Scanner(System.in);
-			System.out.println("Digite o nome: ");
-			produto.setNome(leitor.next() + leitor.nextLine());
-			
-			System.out.println("Digite a descricao: ");
-			produto.setDescricao(leitor.next() + leitor.nextLine());
-			
-			System.out.println("Digite o valor: ");
-			produto.setValor(leitor.nextDouble());
-			
-			System.out.println("Digite o fornecedor: ");
-			produto.setNomeFornecedor(leitor.next() + leitor.nextLine());
-			
 			//Obter uma conexão
 			conexao = ConnectionFactory.getConnection();
+
+			//Insntaciar um ProdutoDao
+			ProdutoDao dao = new ProdutoDao(conexao);
+
+			//Ler os dados
+			Scanner leitor = new Scanner(System.in);
+
 			
-			//ProdutoDao dao = new ProdutoDao(conexao);
-			ProdutoBo bo = new ProdutoBo(conexao);
-			//Cadastrar um produto chamando o Dao
-			bo.cadastrar(produto);
+			System.out.println("Digite o código: ");
+			int codigo = leitor.nextInt();
+			
+			System.out.println("Digite o nome: ");
+			String nome = leitor.next() + leitor.nextLine();
+			
+			System.out.println("Digite a descricao: ");
+			String descricao = leitor.next() + leitor.nextLine();
+
+			
+			System.out.println("Digite o valor: ");
+			double valor = leitor.nextDouble();
+			
+			System.out.println("Digite o fornecedor: ");
+			String fornecedor = leitor.next() + leitor.nextLine();
+
+			//Instanciar um Produto
+			Produto produto = new Produto(codigo, nome, descricao, valor, fornecedor);						
+						
+			//Atualizar um produto chamando o Dao
+			dao.atualizar(produto);
+			
+			System.out.println("Produto Atualizado");
 			
 			//Fechar
 			leitor.close();
@@ -47,8 +56,8 @@ public class Exemplo03 {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			
 		
-		//Instanciar um dao
 		} finally {
 			try {
 				if(conexao != null) {
@@ -61,5 +70,6 @@ public class Exemplo03 {
 			
 		}
 		
-	}//main
-}//class
+	}
+
+}

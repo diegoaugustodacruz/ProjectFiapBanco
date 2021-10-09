@@ -62,7 +62,10 @@ public class Produto {
 		this.nomeFornecedor = nomeFornecedor;
 	}
 	
-	
-	
+	@Override
+	public String toString() {
+		return "Código: " + codigo + ", nome: " + nome + ", descricao: " + descricao + ", valor: " + valor + ", fornecedor" + nomeFornecedor;
+	}
+
 
 }
