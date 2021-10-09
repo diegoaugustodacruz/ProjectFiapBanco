@@ -33,7 +33,17 @@ public class ProdutoBo {
 	public void cadastrar(Produto produto) throws SQLException, DadosInvalidosException {
 		//Validacoes
 		if(produto.getNome()==null || produto.getNome().length()>80) {
-			throw new DadosInvalidosException();
+			throw new DadosInvalidosException("Nome é obrigatorio e deve conter menos de 80 caracteres");
+		}
+		if(produto.getValor() <= 0) {
+			throw new DadosInvalidosException("O valor nao pode ser menor ou igual a zero");
+		}
+		if(produto.getDescricao() != null && produto.getDescricao().length() > 255) {
+			throw new DadosInvalidosException("A descricao deve conter menos do que 255 caracteres");
+		}
+		if(produto.getNomeFornecedor() != null && produto.getNomeFornecedor().length() > 80) {
+			throw new DadosInvalidosException("O fornecedor deve conter menos do que 80 caracteres");
+
 		}
 		dao.cadastrar(produto);
 	}
