@@ -55,12 +55,11 @@ public class UsuarioDAO {
 			pesquisar(usuario.getIdUsuario());
 			
 			PreparedStatement stmt = conexao.prepareStatement("UPDATE ENDORF_USUARIO SET NM_USUARIO = ?, DT_NASCIMENTO = ?,"
-					+ " DT_CADASTRO = ?, DS_EMAIL = ?, DS_SENHA = ? WHERE ID_USUARIO = ?");
+					+ " DS_EMAIL = ?, DS_SENHA = ? WHERE ID_USUARIO = ?");
 			stmt.setString(1, usuario.getNome());
 			stmt.setString(2, usuario.getDataNascimento());
-			stmt.setString(3, usuario.getDataCadastro());
-			stmt.setString(4, usuario.getEmail());
-			stmt.setString(5, usuario.getSenha());
+			stmt.setString(3, usuario.getEmail());
+			stmt.setString(4, usuario.getSenha());
 
 			int qtd = stmt.executeUpdate();		
 

@@ -2,6 +2,8 @@ package br.com.fiap.tds.bo;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import br.com.fiap.tds.bean.Usuario;
 import br.com.fiap.tds.dao.UsuarioDAO;
@@ -9,13 +11,26 @@ import br.com.fiap.tds.exception.DadosInvalidosException;
 
 public class UsuarioBO {
 	
+	
 	private UsuarioDAO dao;
 	
+	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	LocalDateTime now = LocalDateTime.now();
+	String hoje = dtf.format(now);
+	int diaAtual = Integer.parseInt(hoje.substring(0, 2));
+	int mesAtual = Integer.parseInt(hoje.substring(3, 5));
+	int anoAtual = Integer.parseInt(hoje.substring(6));
+		
 	public UsuarioBO(Connection conexao) {
 		dao = new UsuarioDAO(conexao);
 	}
 
 	public void cadastrar(Usuario usuario) throws SQLException, DadosInvalidosException{
+		
+		int diaNascimento = Integer.parseInt(usuario.getDataNascimento().substring(0, 2));
+		int mesNascimento = Integer.parseInt(usuario.getDataNascimento().substring(3,5));
+		int anoNascimento = Integer.parseInt(usuario.getDataNascimento().substring(6));
+		
 		if(usuario.getNome()==null || usuario.getNome().length()>80) {
 			throw new DadosInvalidosException("Nome é obrigatorio e deve conter menos de 80 caracteres");
 		}
@@ -24,12 +39,24 @@ public class UsuarioBO {
 			throw new DadosInvalidosException("Data de Nascimento válida é obrigatoria");
 		}
 		
-		if(usuario.getEmail()==null) {
-			throw new DadosInvalidosException("Email é obrigatorio");
-		}		
-		if(usuario.getSenha()==null) {
-			throw new DadosInvalidosException("Senha é obrigatorio");
+		if(anoNascimento >= anoAtual) {
+			if(mesNascimento >= mesAtual) {
+				if(diaNascimento>diaAtual) {
+					throw new DadosInvalidosException("Data de Nascimento válida é obrigatoria");
+				}
+			}	
 		}
+		
+		if(usuario.getEmail()==null || usuario.getEmail().length()>50) {
+			throw new DadosInvalidosException("Email é obrigatorio e deve conter menos de 50 caracteres");
+		}		
+		
+		if(usuario.getSenha()==null || usuario.getSenha().length()>20) {
+			throw new DadosInvalidosException("Senha é obrigatorio e deve conter menos de 50 caracteres");
+		}
+		
+		usuario.setNome(usuario.getNome().toUpperCase());
+		usuario.setEmail(usuario.getEmail().toUpperCase());
 		
 		dao.cadastrar(usuario);
 	}

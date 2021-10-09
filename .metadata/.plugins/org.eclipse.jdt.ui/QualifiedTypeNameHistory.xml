@@ -36,10 +36,10 @@
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="java.sql.Connection"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.sql.SQLException"/>
     <fullyQualifiedTypeName name="br.com.fiap.tds.exception.IdNotFoundException"/>
     <fullyQualifiedTypeName name="org.graalvm.compiler.lir.alloc.trace.DefaultTraceRegisterAllocationPolicy_OptionDescriptors"/>
     <fullyQualifiedTypeName name="br.com.fiap.tds.exception.DadosInvalidosException"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
 </qualifiedTypeNameHistroy>
