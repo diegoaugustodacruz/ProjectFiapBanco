@@ -4,8 +4,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-import br.com.fiap.tds.bean.Usuario;
-import br.com.fiap.tds.bo.UsuarioBO;
+import br.com.fiap.tds.bean.Profissional;
+import br.com.fiap.tds.bo.ProfissionalBO;
 import br.com.fiap.tds.factory.ConnectionFactory;
 
 public class view {
@@ -16,30 +16,29 @@ public class view {
 		
 		try {
 			//Instanciar um USUARIO
-			Usuario usuario = new Usuario();
+			Profissional profissional = new Profissional();
 			
 			
 			//Ler os dados
 			Scanner leitor = new Scanner(System.in);
 			System.out.println("Digite o nome: ");
-			usuario.setNome(leitor.next() + leitor.nextLine());
+			profissional.setNome(leitor.next() + leitor.nextLine());
 			
 			System.out.println("Digite a data de nascimento: ");
-			usuario.setDataNascimento(leitor.next() + leitor.nextLine());			
+			profissional.setDataNascimento(leitor.next() + leitor.nextLine());			
 			
 			System.out.println("Digite o email ");
-			usuario.setEmail(leitor.next() + leitor.nextLine());
+			profissional.setEmail(leitor.next() + leitor.nextLine());
 			
 			System.out.println("Digite a senha ");
-			usuario.setSenha(leitor.next() + leitor.nextLine());
+			profissional.setSenha(leitor.next() + leitor.nextLine());
 			
 			//Obter uma conexão
 			conexao = ConnectionFactory.getConnection();
 			
-			//ProdutoDao dao = new ProdutoDao(conexao);
-			UsuarioBO bo = new UsuarioBO(conexao);
+			ProfissionalBO bo = new ProfissionalBO(conexao);
 			//Cadastrar um produto chamando o Dao
-			bo.cadastrar(usuario);
+			bo.cadastrar(profissional);
 			
 			//Fechar
 			leitor.close();

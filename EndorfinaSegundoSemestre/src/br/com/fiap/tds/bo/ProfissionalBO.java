@@ -5,19 +5,19 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import br.com.fiap.tds.bean.Usuario;
-import br.com.fiap.tds.dao.UsuarioDAO;
+import br.com.fiap.tds.bean.Profissional;
+import br.com.fiap.tds.dao.ProfissionalDAO;
 import br.com.fiap.tds.exception.DadosInvalidosException;
 
 /**
- * Classe que contem as regras de negocios e validacoes do usuario
- * @author Enforfina
+ * Classe que contem as regras de negocios e validacoes do profissional
+ * @author accountfy
  *
  */
-public class UsuarioBO {	
+public class ProfissionalBO {
 	
-	private UsuarioDAO dao;
-	
+	private ProfissionalDAO dao;
+
 	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	LocalDateTime now = LocalDateTime.now();
 	String hoje = dtf.format(now);
@@ -29,27 +29,27 @@ public class UsuarioBO {
 	 * Construtor que recebe a conexao
 	 * @param conexao
 	 */
-	public UsuarioBO(Connection conexao) {
-		dao = new UsuarioDAO(conexao);
+	public ProfissionalBO(Connection conexao) {
+		dao = new ProfissionalDAO(conexao);
 	}
-
+	
 	/**
-	 * Regras de negocio para cadastramento do usuario
-	 * @param usuario Usuario que sera cadastrado
+	 * Regras de negocio para cadastramento do profissional
+	 * @param profissional Profissional que sera cadastrado
 	 * @throws SQLException
 	 * @throws DadosInvalidosException
 	 */
-	public void cadastrar(Usuario usuario) throws SQLException, DadosInvalidosException{
+	public void cadastrar(Profissional profissional) throws SQLException, DadosInvalidosException{
 		
-		int diaNascimento = Integer.parseInt(usuario.getDataNascimento().substring(0, 2));
-		int mesNascimento = Integer.parseInt(usuario.getDataNascimento().substring(3,5));
-		int anoNascimento = Integer.parseInt(usuario.getDataNascimento().substring(6));
+		int diaNascimento = Integer.parseInt(profissional.getDataNascimento().substring(0, 2));
+		int mesNascimento = Integer.parseInt(profissional.getDataNascimento().substring(3,5));
+		int anoNascimento = Integer.parseInt(profissional.getDataNascimento().substring(6));
 		
-		if(usuario.getNome()==null || usuario.getNome().length()>80) {
+		if(profissional.getNome()==null || profissional.getNome().length()>80) {
 			throw new DadosInvalidosException("Nome é obrigatorio e deve conter menos de 80 caracteres");
 		}
 		
-		if(usuario.getDataNascimento()==null) {
+		if(profissional.getDataNascimento()==null) {
 			throw new DadosInvalidosException("Data de Nascimento válida é obrigatoria");
 		}
 		
@@ -61,17 +61,17 @@ public class UsuarioBO {
 			}	
 		}
 		
-		if(usuario.getEmail()==null || usuario.getEmail().length()>50) {
+		if(profissional.getEmail()==null || profissional.getEmail().length()>50) {
 			throw new DadosInvalidosException("Email é obrigatorio e deve conter menos de 50 caracteres");
 		}		
 		
-		if(usuario.getSenha()==null || usuario.getSenha().length()>20) {
+		if(profissional.getSenha()==null || profissional.getSenha().length()>20) {
 			throw new DadosInvalidosException("Senha é obrigatorio e deve conter menos de 50 caracteres");
 		}
 		
-		usuario.setNome(usuario.getNome().toUpperCase());
-		usuario.setEmail(usuario.getEmail().toUpperCase());
+		profissional.setNome(profissional.getNome().toUpperCase());
+		profissional.setEmail(profissional.getEmail().toUpperCase());
 		
-		dao.cadastrar(usuario);
+		dao.cadastrar(profissional);
 	}
 }
