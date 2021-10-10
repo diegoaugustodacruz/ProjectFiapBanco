@@ -63,6 +63,7 @@ public class UsuarioDAO {
 			stmt.setString(2, usuario.getDataNascimento());
 			stmt.setString(3, usuario.getEmail());
 			stmt.setString(4, usuario.getSenha());
+			stmt.setInt(5, usuario.getIdUsuario());
 
 			int qtd = stmt.executeUpdate();		
 

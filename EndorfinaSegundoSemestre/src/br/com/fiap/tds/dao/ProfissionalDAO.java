@@ -63,6 +63,7 @@ public class ProfissionalDAO {
 			stmt.setString(2, profissional.getDataNascimento());
 			stmt.setString(3, profissional.getEmail());
 			stmt.setString(4, profissional.getSenha());
+			stmt.setInt(5, profissional.getIdProfissional());
 
 			int qtd = stmt.executeUpdate();		
 

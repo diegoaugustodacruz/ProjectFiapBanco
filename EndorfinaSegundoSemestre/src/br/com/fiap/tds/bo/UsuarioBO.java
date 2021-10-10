@@ -8,6 +8,7 @@ import java.time.format.DateTimeFormatter;
 import br.com.fiap.tds.bean.Usuario;
 import br.com.fiap.tds.dao.UsuarioDAO;
 import br.com.fiap.tds.exception.DadosInvalidosException;
+import br.com.fiap.tds.exception.IdNotFoundException;
 
 /**
  * Classe que contem as regras de negocios e validacoes do usuario
@@ -73,5 +74,9 @@ public class UsuarioBO {
 		usuario.setEmail(usuario.getEmail().toUpperCase());
 		
 		dao.cadastrar(usuario);
+	}
+	
+	public void atualizar(Usuario usuario) throws SQLException, IdNotFoundException{
+		dao.atualizar(usuario);
 	}
 }
