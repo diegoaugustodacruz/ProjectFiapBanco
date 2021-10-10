@@ -6,8 +6,10 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import br.com.fiap.tds.bean.Profissional;
+import br.com.fiap.tds.bean.Usuario;
 import br.com.fiap.tds.dao.ProfissionalDAO;
 import br.com.fiap.tds.exception.DadosInvalidosException;
+import br.com.fiap.tds.exception.IdNotFoundException;
 
 /**
  * Classe que contem as regras de negocios e validacoes do profissional
@@ -73,5 +75,9 @@ public class ProfissionalBO {
 		profissional.setEmail(profissional.getEmail().toUpperCase());
 		
 		dao.cadastrar(profissional);
+	}
+	
+	public void atualizar(Profissional profissional) throws SQLException, IdNotFoundException{
+		dao.atualizar(profissional);
 	}
 }

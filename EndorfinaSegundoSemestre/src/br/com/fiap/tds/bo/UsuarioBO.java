@@ -79,4 +79,8 @@ public class UsuarioBO {
 	public void atualizar(Usuario usuario) throws SQLException, IdNotFoundException{
 		dao.atualizar(usuario);
 	}
+	
+	public Usuario pesquisar(int codigo) throws SQLException, IdNotFoundException{
+		return dao.pesquisar(codigo);
+	}
 }

@@ -3231,3 +3231,6 @@ Caused by: java.io.FileNotFoundException: C:\Program Files\Git\mingw64\share\git
 	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:112)
 	at org.eclipse.swt.graphics.ImageLoader.load(ImageLoader.java:290)
 	... 71 more
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2021-10-10 07:53:29.979
+!MESSAGE No repository found at http://dl.bintray.com/testng-team/testng-p2-release/.

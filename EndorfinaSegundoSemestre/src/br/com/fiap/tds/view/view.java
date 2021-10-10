@@ -27,23 +27,10 @@ public class view {
 			
 			
 			System.out.println("Digite o código: ");
-			usuario.setIdUsuario(leitor.nextInt());			
-			
-			System.out.println("Digite o nome: ");
-			usuario.setNome(leitor.next() + leitor.nextLine());
-			
-			System.out.println("Digite a data de nascimento: ");
-			usuario.setDataNascimento(leitor.next() + leitor.nextLine());			
-			
-			System.out.println("Digite o email ");
-			usuario.setEmail(leitor.next() + leitor.nextLine());
-			
-			System.out.println("Digite a senha ");
-			usuario.setSenha(leitor.next() + leitor.nextLine());
-			
+			int codigo = (leitor.nextInt());				
 			
 			//Cadastrar um produto chamando o Dao
-			bo.atualizar(usuario);
+			bo.pesquisar(codigo);
 			
 			//Fechar
 			leitor.close();
