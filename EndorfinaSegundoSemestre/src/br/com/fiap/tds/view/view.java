@@ -4,8 +4,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-import br.com.fiap.tds.bean.Usuario;
-import br.com.fiap.tds.bo.UsuarioBO;
+import br.com.fiap.tds.bean.Hobby;
+import br.com.fiap.tds.bo.HobbyBO;
 import br.com.fiap.tds.factory.ConnectionFactory;
 
 public class view {
@@ -15,22 +15,23 @@ public class view {
 		
 		
 		try {
-			//Instanciar um USUARIO
-			Usuario usuario = new Usuario();
+			//Instanciar um Produto
+			Hobby hobby = new Hobby();
 			
-			conexao = ConnectionFactory.getConnection();
-			
-			UsuarioBO bo = new UsuarioBO(conexao);
 			
 			//Ler os dados
 			Scanner leitor = new Scanner(System.in);
+			System.out.println("Digite o nome: ");
+			hobby.setNomeHobby(leitor.next() + leitor.nextLine());			
 			
 			
-			System.out.println("Digite o código: ");
-			int codigo = (leitor.nextInt());				
+			//Obter uma conexão
+			conexao = ConnectionFactory.getConnection();
 			
+			//ProdutoDao dao = new ProdutoDao(conexao);
+			HobbyBO bo = new HobbyBO(conexao);
 			//Cadastrar um produto chamando o Dao
-			bo.pesquisar(codigo);
+			bo.cadastrar(hobby);
 			
 			//Fechar
 			leitor.close();
