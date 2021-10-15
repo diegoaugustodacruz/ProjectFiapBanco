@@ -28,6 +28,29 @@ public class ProdutoDao {
 		
 	}
 	
+	/**
+	 * Pesquisa os produtos por parte do nome
+	 * @param nome Termo de pesquisa
+	 * @return List<Produto> Lista dos produtos encontrados
+	 */
+	public List<Produto> buscarPorNome(String nome) throws SQLException, IdNotFoundException{
+		//Criar o comando SQL
+		PreparedStatement stmt = conexao.prepareStatement("SELECT * FROM TDSS_PRODUTO WHERE NM_PRODUTO = ?");
+
+		//Passar o parametro para a query
+		stmt.setString(1, nome);		
+				
+		//Executar
+		ResultSet result = stmt.executeQuery();
+		
+		List<Produto> lista;
+		
+		return lista;
+		
+		
+		
+	}
+	
 	public void cadastrar(Produto produto) throws SQLException {
 		//Criar o comando SQL
 		PreparedStatement stmt = conexao.prepareStatement("INSERT INTO TDSS_PRODUTO "

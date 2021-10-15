@@ -40,8 +40,9 @@
     <fullyQualifiedTypeName name="br.com.fiap.tds.exception.IdNotFoundException"/>
     <fullyQualifiedTypeName name="org.graalvm.compiler.lir.alloc.trace.DefaultTraceRegisterAllocationPolicy_OptionDescriptors"/>
     <fullyQualifiedTypeName name="br.com.fiap.tds.exception.DadosInvalidosException"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="java.util.regex.Pattern"/>
     <fullyQualifiedTypeName name="java.util.regex.Matcher"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="br.com.fiap.tds.bean.Hobby"/>
 </qualifiedTypeNameHistroy>

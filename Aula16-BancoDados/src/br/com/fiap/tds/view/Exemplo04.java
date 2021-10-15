@@ -5,11 +5,12 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 import br.com.fiap.tds.bean.Produto;
-import br.com.fiap.tds.dao.ProdutoDao;
+import br.com.fiap.tds.bo.ProdutoBo;
 import br.com.fiap.tds.factory.ConnectionFactory;
 
 public class Exemplo04 {
 	
+	//Ex Atualizacao
 	public static void main(String[] args) {
 		
 		Connection conexao = null;
@@ -20,7 +21,7 @@ public class Exemplo04 {
 			conexao = ConnectionFactory.getConnection();
 
 			//Insntaciar um ProdutoDao
-			ProdutoDao dao = new ProdutoDao(conexao);
+			//ProdutoDao dao = new ProdutoDao(conexao);
 
 			//Ler os dados
 			Scanner leitor = new Scanner(System.in);
@@ -46,7 +47,8 @@ public class Exemplo04 {
 			Produto produto = new Produto(codigo, nome, descricao, valor, fornecedor);						
 						
 			//Atualizar um produto chamando o Dao
-			dao.atualizar(produto);
+			ProdutoBo bo = new ProdutoBo(conexao);
+			bo.atualizar(produto);
 			
 			System.out.println("Produto Atualizado");
 			

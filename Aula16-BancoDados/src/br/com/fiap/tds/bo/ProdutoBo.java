@@ -25,14 +25,19 @@ public class ProdutoBo {
 	 * @param conexao
 	 */
 	public ProdutoBo(Connection conexao) {
-				
+		
 		dao = new ProdutoDao(conexao);
 	}
 	
 
 	public void cadastrar(Produto produto) throws SQLException, DadosInvalidosException {
-		//Validacoes
-		if(produto.getNome()==null || produto.getNome().length()>80) {
+		validar(produto);
+		dao.cadastrar(produto);
+	}
+	
+	private void validar(Produto produto) throws DadosInvalidosException {
+		
+		if(produto.getNome()==null || produto.getNome().length()>80)  {
 			throw new DadosInvalidosException("Nome é obrigatorio e deve conter menos de 80 caracteres");
 		}
 		if(produto.getValor() <= 0) {
@@ -43,12 +48,11 @@ public class ProdutoBo {
 		}
 		if(produto.getNomeFornecedor() != null && produto.getNomeFornecedor().length() > 80) {
 			throw new DadosInvalidosException("O fornecedor deve conter menos do que 80 caracteres");
-
-		}
-		dao.cadastrar(produto);
+		}		
 	}
 	
-	public void atualizar(Produto produto) throws SQLException, IdNotFoundException{
+	public void atualizar(Produto produto) throws SQLException, IdNotFoundException, DadosInvalidosException{
+		validar(produto);		
 		dao.atualizar(produto);
 	}
 	
