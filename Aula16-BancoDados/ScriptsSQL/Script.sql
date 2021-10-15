@@ -1,4 +1,4 @@
-CREATE TABLE tdss_tb_produto (
+CREATE TABLE tdss_produto (
     cd_produto  NUMBER PRIMARY KEY,
     nm_produto  VARCHAR(80) NOT NULL,
     ds_produto  VARCHAR(255),

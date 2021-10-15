@@ -73,14 +73,15 @@ public class ProdutoDao {
 	public void cadastrar(Produto produto) throws SQLException {
 		//Criar o comando SQL
 		PreparedStatement stmt = conexao.prepareStatement("INSERT INTO TDSS_PRODUTO "
-				+ "(CD_PRODUTO, NM_PRODUTO, DS_PRODUTO, VL_PRODUTO, NM_FORNECEDOR)"
-				+ " VALUES (SQ_TB_PRODUTO.NEXTVAL, ?, ?, ?, ?)");
+				+ "(CD_PRODUTO, NM_PRODUTO, DS_PRODUTO, VL_PRODUTO, NM_FORNECEDOR, CD_CATEGORIA) "
+				+ "VALUES (SQ_TB_PRODUTO.NEXTVAL, ?, ?, ?, ?, ?)");
 		
 		//passar os valores para o comando SQL
 		stmt.setString(1, produto.getNome());
 		stmt.setString(2, produto.getDescricao());
 		stmt.setDouble(3, produto.getValor());
 		stmt.setString(4, produto.getNomeFornecedor());
+		stmt.setInt(5, produto.getCategoria().getCodigo());
 		
 		//Executar o comando SQL
 		stmt.executeUpdate();

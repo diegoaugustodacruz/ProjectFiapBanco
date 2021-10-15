@@ -10,6 +10,10 @@ public class Produto {
 	
 	private String nomeFornecedor;
 	
+	private Categoria categoria;
+	
+	private int codigoCategoria;
+	
 	public Produto() {
 		
 	}
@@ -20,6 +24,19 @@ public class Produto {
 		this.descricao = descricao;
 		this.valor = valor;
 		this.nomeFornecedor = nomeFornecedor;
+	}
+	
+	
+	
+	public Produto(int codigo, String nome, String descricao, double valor, String nomeFornecedor,
+			Categoria categoria) {
+		super();
+		this.codigo = codigo;
+		this.nome = nome;
+		this.descricao = descricao;
+		this.valor = valor;
+		this.nomeFornecedor = nomeFornecedor;
+		this.categoria = categoria;
 	}
 
 	public int getCodigo() {
@@ -61,7 +78,23 @@ public class Produto {
 	public void setNomeFornecedor(String nomeFornecedor) {
 		this.nomeFornecedor = nomeFornecedor;
 	}
-	
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
+	public int getCodigoCategoria() {
+		return codigoCategoria;
+	}
+
+	public void setCodigoCategoria(int codigoCategoria) {
+		this.codigoCategoria = codigoCategoria;
+	}
+
 	@Override
 	public String toString() {
 		return "Código: " + codigo + ", nome: " + nome + ", descricao: " + descricao + ", valor: " + valor + ", fornecedor" + nomeFornecedor;
