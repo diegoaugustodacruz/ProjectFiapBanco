@@ -32,22 +32,41 @@ public class ProdutoDao {
 	 * Pesquisa os produtos por parte do nome
 	 * @param nome Termo de pesquisa
 	 * @return List<Produto> Lista dos produtos encontrados
+	 * @throws SQLException, IdNotFoundException
 	 */
-	public List<Produto> buscarPorNome(String nome) throws SQLException, IdNotFoundException{
+	public List<Produto> buscarPorNome(String nome) throws SQLException{
 		//Criar o comando SQL
-		PreparedStatement stmt = conexao.prepareStatement("SELECT * FROM TDSS_PRODUTO WHERE NM_PRODUTO = ?");
+		PreparedStatement stmt = conexao.prepareStatement("SELECT * FROM TDSS_PRODUTO WHERE NM_PRODUTO LIKE ?");
 
 		//Passar o parametro para a query
-		stmt.setString(1, nome);		
-				
+		stmt.setString(1,"%" + nome + "%");		
+		
 		//Executar
 		ResultSet result = stmt.executeQuery();
 		
-		List<Produto> lista;
+		return parseList(result);	
 		
+		
+	}
+	
+	/**
+	 * Rece o resultado de uma pesquisa e retora uma lista
+	 * @param result Resultado de uma pesquisa
+	 * @return List<Produto> lista de produtos
+	 * @throws SQLException
+	 */
+	private List<Produto> parseList(ResultSet result) throws SQLException{
+		//Criar uma lista de produtos
+		List<Produto> lista = new ArrayList<Produto>();
+		
+		//Ler os registros encontrados
+		while(result.next()) {			
+			Produto produto = parse(result);
+			//Adicionar na lista
+			lista.add(produto);
+			//Retornar a lista
+		}
 		return lista;
-		
-		
 		
 	}
 	
@@ -142,17 +161,7 @@ public class ProdutoDao {
 		//Executa o comando
 		ResultSet result = stmt.executeQuery();
 		
-		//Criar uma lista de produtos
-		List<Produto> lista = new ArrayList<Produto>();
-		
-		//Ler os registros encontrados
-		while(result.next()) {			
-			Produto produto = parse(result);
-			//Adicionar na lista
-			lista.add(produto);
-			//Retornar a lista
-		}
-		return lista;
+		return parseList(result);
 		
 	}
 

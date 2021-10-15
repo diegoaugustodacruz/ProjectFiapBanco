@@ -51,6 +51,11 @@ public class ProdutoBo {
 		}		
 	}
 	
+	public List<Produto> buscarPorNome(String nome) throws SQLException{
+		return dao.buscarPorNome(nome);
+	}
+	
+	
 	public void atualizar(Produto produto) throws SQLException, IdNotFoundException, DadosInvalidosException{
 		validar(produto);		
 		dao.atualizar(produto);
