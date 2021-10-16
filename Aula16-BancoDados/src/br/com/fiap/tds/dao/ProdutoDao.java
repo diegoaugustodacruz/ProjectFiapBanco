@@ -100,14 +100,15 @@ public class ProdutoDao {
 		
 		//Criar o comando SQL
 		PreparedStatement stmt = conexao.prepareStatement("UPDATE TDSS_PRODUTO SET NM_PRODUTO = ?, DS_PRODUTO = ?,"
-				+ " VL_PRODUTO = ?, NM_FORNECEDOR = ? WHERE CD_PRODUTO = ?");
+				+ " VL_PRODUTO = ?, NM_FORNECEDOR = ?, CD_CATEGORIA = ? WHERE CD_PRODUTO = ?");
 		
 		//passar os valores para o comando SQL
 		stmt.setString(1, produto.getNome());
 		stmt.setString(2, produto.getDescricao());
 		stmt.setDouble(3, produto.getValor());
 		stmt.setString(4, produto.getNomeFornecedor());
-		stmt.setInt(5, produto.getCodigo());
+		stmt.setInt(5, produto.getCategoria().getCodigo());
+		stmt.setInt(6, produto.getCodigo());
 		
 		//Executar o comando SQL
 		int qtd = stmt.executeUpdate();		

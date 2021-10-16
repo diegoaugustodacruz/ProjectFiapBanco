@@ -4,12 +4,14 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+import br.com.fiap.tds.bean.Categoria;
 import br.com.fiap.tds.bean.Produto;
 import br.com.fiap.tds.bo.ProdutoBo;
 import br.com.fiap.tds.factory.ConnectionFactory;
 
 public class Exemplo03 {
 
+	//cadastrar
 	public static void main(String[] args) {
 		Connection conexao = null;
 		
@@ -32,6 +34,11 @@ public class Exemplo03 {
 			
 			System.out.println("Digite o fornecedor: ");
 			produto.setNomeFornecedor(leitor.next() + leitor.nextLine());
+			
+			System.out.println("Digite o codigo da categoria");
+			Categoria categoria = new Categoria();
+			categoria.setCodigo(leitor.nextInt());
+			produto.setCategoria(categoria);
 			
 			//Obter uma conexão
 			conexao = ConnectionFactory.getConnection();
