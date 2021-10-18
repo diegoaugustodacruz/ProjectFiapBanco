@@ -2,7 +2,9 @@ package br.com.fiap.tds.bean;
 
 public class UsuarioProfissional {
 	
-	protected int idUsuario, idProfissional;
+	private Usuario usuario;
+	
+	private Profissional profissional;
 	
 	
 	public UsuarioProfissional() {
@@ -10,31 +12,34 @@ public class UsuarioProfissional {
 	}
 
 
-	public UsuarioProfissional(int idUsuario, int idProfissional) {
+	public UsuarioProfissional(Usuario usuario, Profissional profissional) {
 		super();
-		this.idUsuario = idUsuario;
-		this.idProfissional = idProfissional;
+		this.usuario = usuario;
+		this.profissional = profissional;
 	}
 
 
-	public int getIdUsuario() {
-		return idUsuario;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
 
-	public void setIdUsuario(int idUsuario) {
-		this.idUsuario = idUsuario;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 
-	public int getIdProfissional() {
-		return idProfissional;
+	public Profissional getProfissional() {
+		return profissional;
 	}
 
 
-	public void setIdProfissional(int idProfissional) {
-		this.idProfissional = idProfissional;
+	public void setProfissional(Profissional profissional) {
+		this.profissional = profissional;
 	}
+
+
+	
 	
 	
 

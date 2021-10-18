@@ -28,7 +28,7 @@ public class EnderecoDAO {
 		stmt.setString(4, endereco.getBairro());
 		stmt.setString(5, endereco.getCidade());
 		stmt.setString(6, endereco.getEstado());
-		stmt.setInt(7, endereco.getIdUsuario());
+		stmt.setInt(7, endereco.getUsuario().getIdUsuario());
 		
 		//Executar o comando SQL
 		stmt.executeUpdate();
@@ -47,7 +47,7 @@ public class EnderecoDAO {
 		stmt.setString(4, endereco.getBairro());
 		stmt.setString(5, endereco.getCidade());
 		stmt.setString(6, endereco.getEstado());
-		stmt.setInt(7, endereco.getIdProfissional());
+		stmt.setInt(7, endereco.getProfissional().getIdProfissional());
 		
 		//Executar o comando SQL
 		stmt.executeUpdate();

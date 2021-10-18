@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
+import java.util.List;
 import br.com.fiap.tds.bean.Usuario;
 import br.com.fiap.tds.dao.UsuarioDAO;
 import br.com.fiap.tds.exception.DadosInvalidosException;
@@ -41,7 +41,28 @@ public class UsuarioBO {
 	 * @throws DadosInvalidosException
 	 */
 	public void cadastrar(Usuario usuario) throws SQLException, DadosInvalidosException{
+		validar(usuario);		
 		
+		dao.cadastrar(usuario);
+	}
+	
+	public void atualizar(Usuario usuario) throws SQLException, IdNotFoundException, DadosInvalidosException{
+		validar(usuario);	
+
+		dao.atualizar(usuario);
+	}
+	
+	
+	public Usuario pesquisar(int codigo) throws SQLException, IdNotFoundException{
+		return dao.pesquisar(codigo);
+	}
+	
+	public List<Usuario> buscarPorNome(String nome) throws SQLException{
+		return dao.buscarPorNome(nome);
+	}
+	
+	
+	public void validar(Usuario usuario)  throws SQLException, DadosInvalidosException{
 		int diaNascimento = Integer.parseInt(usuario.getDataNascimento().substring(0, 2));
 		int mesNascimento = Integer.parseInt(usuario.getDataNascimento().substring(3,5));
 		int anoNascimento = Integer.parseInt(usuario.getDataNascimento().substring(6));
@@ -72,15 +93,5 @@ public class UsuarioBO {
 		
 		usuario.setNome(usuario.getNome().toUpperCase());
 		usuario.setEmail(usuario.getEmail().toUpperCase());
-		
-		dao.cadastrar(usuario);
-	}
-	
-	public void atualizar(Usuario usuario) throws SQLException, IdNotFoundException{
-		dao.atualizar(usuario);
-	}
-	
-	public Usuario pesquisar(int codigo) throws SQLException, IdNotFoundException{
-		return dao.pesquisar(codigo);
 	}
 }

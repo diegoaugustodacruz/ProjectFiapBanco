@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import br.com.fiap.tds.bean.Usuario;
 import br.com.fiap.tds.exception.IdNotFoundException;
 
@@ -27,6 +26,46 @@ public class UsuarioDAO {
 		this.conexao = conexao;
 		
 	}
+	
+	/**
+	 * Pesquisa os usuarios por parte do nome
+	 * @param nome Termo de pesquisa
+	 * @return List<Produto> Lista dos usuarios encontrados
+	 * @throws SQLException, IdNotFoundException
+	 */
+	public List<Usuario> buscarPorNome(String nome) throws SQLException{
+		//Criar o comando SQL
+		PreparedStatement stmt = conexao.prepareStatement("SELECT * FROM ENDORF_USUARIO WHERE NM_USUARIO LIKE ?");
+
+		//Passar o parametro para a query
+		stmt.setString(1,"%" + nome + "%");		
+		
+		//Executar
+		ResultSet result = stmt.executeQuery();
+		
+		return parseList(result);	
+		
+		
+	}
+	
+	/**
+	 * Rece o resultado de uma pesquisa e retora uma lista
+	 * @param result Resultado de uma pesquisa
+	 * @return List<Produto> lista de usuarios
+	 * @throws SQLException
+	 */
+	private List<Usuario> parseList(ResultSet result) throws SQLException{
+		List<Usuario> lista = new ArrayList<Usuario>();
+		
+		while(result.next()) {			
+			Usuario usuario = parse(result);
+			lista.add(usuario);
+		}
+		return lista;
+		
+	}
+	
+	
 
 	/**
 	 * Cadastra um usuario no banco de dados

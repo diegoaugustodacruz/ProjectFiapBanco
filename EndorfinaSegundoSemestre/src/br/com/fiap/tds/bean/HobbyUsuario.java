@@ -2,9 +2,9 @@ package br.com.fiap.tds.bean;
 
 public class HobbyUsuario {
 
-	private int idHobby;
+	private Usuario usuario;
 	
-	private int idUsuario;	
+	private Hobby hobby;
 
 		
 	public HobbyUsuario() {
@@ -12,32 +12,34 @@ public class HobbyUsuario {
 	}
 
 
-	public HobbyUsuario(int idHobby, int idUsuario) {
+	public HobbyUsuario(Usuario usuario, Hobby hobby) {
 		super();
-		this.idHobby = idHobby;
-		this.idUsuario = idUsuario;
+		this.usuario = usuario;
+		this.hobby = hobby;
 	}
 
 
-	public int getIdHobby() {
-		return idHobby;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
 
-	public void setIdHobby(int idHobby) {
-		this.idHobby = idHobby;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 
-	public int getIdUsuario() {
-		return idUsuario;
+	public Hobby getHobby() {
+		return hobby;
 	}
 
 
-	public void setIdUsuario(int idUsuario) {
-		this.idUsuario = idUsuario;
+	public void setHobby(Hobby hobby) {
+		this.hobby = hobby;
 	}
 
+
+	
 
 
 

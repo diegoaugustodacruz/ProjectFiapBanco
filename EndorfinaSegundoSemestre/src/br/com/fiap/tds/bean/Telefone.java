@@ -2,20 +2,23 @@ package br.com.fiap.tds.bean;
 
 public class Telefone {
 
-	private int idTelefone, idUsuario, idProfissional, ddi, ddd, numeroTel;
+	private int idTelefone, ddi, ddd, numeroTel;
+	
+	private Usuario usuario;
+	
+	private Profissional profissional;
 
 	public Telefone() {
 
 	}
 
-	public Telefone(int idTelefone, int idUsuario, int idProfissional, int ddi, int ddd, int numeroTel) {
+	public Telefone(int ddi, int ddd, int numeroTel, Usuario usuario, Profissional profissional) {
 		super();
-		this.idTelefone = idTelefone;
-		this.idUsuario = idUsuario;
-		this.idProfissional = idProfissional;
 		this.ddi = ddi;
 		this.ddd = ddd;
 		this.numeroTel = numeroTel;
+		this.usuario = usuario;
+		this.profissional = profissional;
 	}
 
 	public int getIdTelefone() {
@@ -24,22 +27,6 @@ public class Telefone {
 
 	public void setIdTelefone(int idTelefone) {
 		this.idTelefone = idTelefone;
-	}
-
-	public int getIdUsuario() {
-		return idUsuario;
-	}
-
-	public void setIdUsuario(int idUsuario) {
-		this.idUsuario = idUsuario;
-	}
-
-	public int getIdProfissional() {
-		return idProfissional;
-	}
-
-	public void setIdProfissional(int idProfissional) {
-		this.idProfissional = idProfissional;
 	}
 
 	public int getDdi() {
@@ -65,6 +52,24 @@ public class Telefone {
 	public void setNumeroTel(int numeroTel) {
 		this.numeroTel = numeroTel;
 	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public Profissional getProfissional() {
+		return profissional;
+	}
+
+	public void setProfissional(Profissional profissional) {
+		this.profissional = profissional;
+	}
+
+	
 
 	
 

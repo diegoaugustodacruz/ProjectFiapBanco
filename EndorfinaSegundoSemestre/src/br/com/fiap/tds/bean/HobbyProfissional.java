@@ -2,35 +2,37 @@ package br.com.fiap.tds.bean;
 
 public class HobbyProfissional {
 
-	private int idHobby;
+	private Profissional profissional;
 	
-	private int idProfissional;	
+	private Hobby hobby;	
 
 	public HobbyProfissional() {
 		
 	}
 
-	public HobbyProfissional(int idHobby, int idProfissional) {
+	public HobbyProfissional(Profissional profissional, Hobby hobby) {
 		super();
-		this.idHobby = idHobby;
-		this.idProfissional = idProfissional;
+		this.profissional = profissional;
+		this.hobby = hobby;
 	}
 
-	public int getIdHobby() {
-		return idHobby;
+	public Profissional getProfissional() {
+		return profissional;
 	}
 
-	public void setIdHobby(int idHobby) {
-		this.idHobby = idHobby;
+	public void setProfissional(Profissional profissional) {
+		this.profissional = profissional;
 	}
 
-	public int getIdProfissional() {
-		return idProfissional;
+	public Hobby getHobby() {
+		return hobby;
 	}
 
-	public void setIdProfissional(int idProfissional) {
-		this.idProfissional = idProfissional;
+	public void setHobby(Hobby hobby) {
+		this.hobby = hobby;
 	}
+
+	
 
 	
 	
