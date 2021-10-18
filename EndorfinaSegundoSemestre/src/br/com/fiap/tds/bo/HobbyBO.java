@@ -2,6 +2,7 @@ package br.com.fiap.tds.bo;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 import br.com.fiap.tds.bean.Hobby;
 import br.com.fiap.tds.bean.Usuario;
@@ -27,11 +28,12 @@ public class HobbyBO {
 	}
 
 	public void cadastrar(Hobby hobby) throws SQLException, DadosInvalidosException{
-		if(hobby.getNomeHobby()==null || hobby.getNomeHobby().length()>40) {
-			throw new DadosInvalidosException("Nome é obrigatorio e deve conter menos de 40 caracteres");
-		}
-		hobby.setNomeHobby(hobby.getNomeHobby().toUpperCase());
+		validar(hobby);
 		dao.cadastrarHobby(hobby);
+	}
+	
+	public List<Hobby> buscarPorNome(String nome) throws SQLException{
+		return dao.buscarPorNome(nome);
 	}
 	
 	public void atualizar(Hobby hobby) throws SQLException, IdNotFoundException{
@@ -42,5 +44,17 @@ public class HobbyBO {
 		return dao.pesquisar(codigo);
 	}
 	
+	public List<Hobby> listar() throws SQLException{
+		return dao.listar();
+	}
 	
+	public void remover(int codigo) throws SQLException, IdNotFoundException{
+		dao.remover(codigo);
+	}
+	
+	public void validar(Hobby hobby) throws SQLException, DadosInvalidosException{
+		if(hobby.getNomeHobby()==null || hobby.getNomeHobby().length()>40) {
+			throw new DadosInvalidosException("Nome é obrigatorio e deve conter menos de 40 caracteres");
+		}
+	}
 }

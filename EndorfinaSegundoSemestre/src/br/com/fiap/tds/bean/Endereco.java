@@ -28,6 +28,17 @@ public class Endereco {
 		this.usuario = usuario;
 		this.profissional = profissional;
 	}
+	
+	public Endereco(int idEndereco, int numeroCasa, int numeroCEP, String nomeRua, String bairro, String cidade, String estado) {
+		super();
+		this.idEndereco = idEndereco;
+		this.numeroCasa = numeroCasa;
+		this.numeroCEP = numeroCEP;
+		this.nomeRua = nomeRua;
+		this.bairro = bairro;
+		this.cidade = cidade;
+		this.estado = estado;
+	}
 
 
 	public int getIdEndereco() {

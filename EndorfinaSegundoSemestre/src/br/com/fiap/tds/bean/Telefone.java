@@ -20,6 +20,16 @@ public class Telefone {
 		this.usuario = usuario;
 		this.profissional = profissional;
 	}
+	
+	
+
+	public Telefone(int idTelefone, int ddi, int ddd, int numeroTel) {
+		super();
+		this.idTelefone = idTelefone;
+		this.ddi = ddi;
+		this.ddd = ddd;
+		this.numeroTel = numeroTel;
+	}
 
 	public int getIdTelefone() {
 		return idTelefone;

@@ -46,8 +46,12 @@ public class UsuarioBO {
 		dao.cadastrar(usuario);
 	}
 	
+	public List<Usuario> buscarPorNome(String nome) throws SQLException{
+		return dao.buscarPorNome(nome);
+	}
+
 	public void atualizar(Usuario usuario) throws SQLException, IdNotFoundException, DadosInvalidosException{
-		validar(usuario);	
+		validar(usuario);
 
 		dao.atualizar(usuario);
 	}
@@ -57,10 +61,13 @@ public class UsuarioBO {
 		return dao.pesquisar(codigo);
 	}
 	
-	public List<Usuario> buscarPorNome(String nome) throws SQLException{
-		return dao.buscarPorNome(nome);
+	public List<Usuario> listar() throws SQLException{
+		return dao.listar();
 	}
 	
+	public void remover(int codigo) throws SQLException, IdNotFoundException{
+		dao.remover(codigo);
+	}	
 	
 	public void validar(Usuario usuario)  throws SQLException, DadosInvalidosException{
 		int diaNascimento = Integer.parseInt(usuario.getDataNascimento().substring(0, 2));
@@ -90,8 +97,5 @@ public class UsuarioBO {
 		if(usuario.getSenha()==null || usuario.getSenha().length()>20) {
 			throw new DadosInvalidosException("Senha é obrigatorio e deve conter menos de 50 caracteres");
 		}
-		
-		usuario.setNome(usuario.getNome().toUpperCase());
-		usuario.setEmail(usuario.getEmail().toUpperCase());
 	}
 }

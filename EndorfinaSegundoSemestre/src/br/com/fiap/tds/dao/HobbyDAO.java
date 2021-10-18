@@ -28,6 +28,31 @@ public class HobbyDAO {
 		this.conexao = conexao;
 		
 	}
+	
+	public List<Hobby> buscarPorNome(String nome) throws SQLException{
+		//Criar o comando SQL
+		PreparedStatement stmt = conexao.prepareStatement("SELECT * FROM ENDORF_HOBBY WHERE NM_HOBBY LIKE ?");
+
+		//Passar o parametro para a query
+		stmt.setString(1,"%" + nome + "%");		
+		
+		//Executar
+		ResultSet result = stmt.executeQuery();
+		
+		return parseList(result);		
+		
+	}
+	
+	private List<Hobby> parseList(ResultSet result) throws SQLException{
+		List<Hobby> lista = new ArrayList<Hobby>();
+		
+		while(result.next()) {			
+			Hobby hobby = parse(result);
+			lista.add(hobby);
+		}
+		return lista;
+		
+	}
 
 	/**
 	 * Cadastra um hobby no banco de dados
@@ -38,11 +63,17 @@ public class HobbyDAO {
 		
 		PreparedStatement stmt = conexao.prepareStatement("INSERT INTO ENDORF_HOBBY "
 				+ "(ID_HOBBY, NM_HOBBY)"
-				+ " VALUES (SQ_ENDORF_HOBBY.NEXTVAL, ?)");
+				+ " VALUES (SQ_ENDORF_HOBBY.NEXTVAL, ?)", new String[] {"ID_HOBBY"});
 		
 		stmt.setString(1, hobby.getNomeHobby());
 		
 		stmt.executeUpdate();
+		
+		ResultSet result = stmt.getGeneratedKeys();
+		if(result.next()) {
+			int codigo = result.getInt(1);
+			hobby.setIdHobby(codigo);
+		}
 	}
 	
 		/**

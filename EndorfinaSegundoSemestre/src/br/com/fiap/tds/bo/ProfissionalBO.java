@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import br.com.fiap.tds.bean.Profissional;
 import br.com.fiap.tds.bean.Usuario;
@@ -42,7 +43,12 @@ public class ProfissionalBO {
 	 * @throws DadosInvalidosException
 	 */
 	public void cadastrar(Profissional profissional) throws SQLException, DadosInvalidosException{
+		validar(profissional);		
 		
+		dao.cadastrar(profissional);
+	}
+	
+	public void validar(Profissional profissional) throws SQLException, DadosInvalidosException{
 		int diaNascimento = Integer.parseInt(profissional.getDataNascimento().substring(0, 2));
 		int mesNascimento = Integer.parseInt(profissional.getDataNascimento().substring(3,5));
 		int anoNascimento = Integer.parseInt(profissional.getDataNascimento().substring(6));
@@ -70,14 +76,23 @@ public class ProfissionalBO {
 		if(profissional.getSenha()==null || profissional.getSenha().length()>20) {
 			throw new DadosInvalidosException("Senha é obrigatorio e deve conter menos de 50 caracteres");
 		}
-		
-		profissional.setNome(profissional.getNome().toUpperCase());
-		profissional.setEmail(profissional.getEmail().toUpperCase());
-		
-		dao.cadastrar(profissional);
 	}
 	
-	public void atualizar(Profissional profissional) throws SQLException, IdNotFoundException{
+	public List<Profissional> buscarPorNome(String nome) throws SQLException{
+		return dao.buscarPorNome(nome);
+	}
+	
+	public void remover(int codigo) throws SQLException, IdNotFoundException{
+		dao.remover(codigo);
+	}
+	
+	public void atualizar(Profissional profissional) throws SQLException, IdNotFoundException, DadosInvalidosException{
+		validar(profissional);		
 		dao.atualizar(profissional);
 	}
+	
+	
+	
+	
+	
 }
