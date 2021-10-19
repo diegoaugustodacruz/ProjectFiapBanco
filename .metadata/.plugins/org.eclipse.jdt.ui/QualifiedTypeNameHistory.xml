@@ -34,18 +34,19 @@
     <fullyQualifiedTypeName name="br.com.fiap.tds.exception.IdNotFoundExcemption"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-    <fullyQualifiedTypeName name="br.com.fiap.tds.exception.IdNotFoundException"/>
     <fullyQualifiedTypeName name="org.graalvm.compiler.lir.alloc.trace.DefaultTraceRegisterAllocationPolicy_OptionDescriptors"/>
     <fullyQualifiedTypeName name="java.util.regex.Pattern"/>
     <fullyQualifiedTypeName name="java.util.regex.Matcher"/>
     <fullyQualifiedTypeName name="br.com.fiap.tds.bean.Hobby"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="br.com.fiap.tds.exception.DadosInvalidosException"/>
-    <fullyQualifiedTypeName name="java.sql.SQLException"/>
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
     <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="br.com.fiap.tds.exception.IdNotFoundException"/>
+    <fullyQualifiedTypeName name="java.sql.SQLException"/>
+    <fullyQualifiedTypeName name="br.com.fiap.tds.bean.Telefone"/>
 </qualifiedTypeNameHistroy>
