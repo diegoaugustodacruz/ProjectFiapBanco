@@ -27,6 +27,7 @@ public class TelefoneBO {
 	}
 	
 	public void cadastrarUsuario(Telefone telefone) throws SQLException, DadosInvalidosException{
+		validar(telefone);
 		conexao.setAutoCommit(false);
 		usuarioBO.cadastrar(telefone.getUsuario());
 		telefoneDAO.cadastrarUsuario(telefone);
@@ -40,6 +41,7 @@ public class TelefoneBO {
 	}
 	
 	public void cadastrarProfissional(Telefone telefone) throws SQLException, DadosInvalidosException{
+		validar(telefone);
 		conexao.setAutoCommit(false);
 		profissionalBO.cadastrar(telefone.getProfissional());
 		telefoneDAO.cadastrarProfissional(telefone);
@@ -58,6 +60,7 @@ public class TelefoneBO {
 	}
 	
 	public void atualizar(Telefone telefone) throws SQLException, IdNotFoundException, DadosInvalidosException{
+		validar(telefone);
 		telefoneDAO.atualizar(telefone);
 	}
 
@@ -71,6 +74,24 @@ public class TelefoneBO {
 	
 	public void remover(int codigo) throws SQLException, IdNotFoundException{
 		telefoneDAO.remover(codigo);
+	}
+	
+	private void validar(Telefone telefone) throws SQLException, DadosInvalidosException{
+		String numeroTelefone = Integer.toString(telefone.getNumeroTel());
+		String numeroDDD = Integer.toString(telefone.getDdd());
+		String numeroDDI = Integer.toString(telefone.getDdi());
+
+		if(numeroTelefone == null || numeroTelefone.length()>9) {
+			throw new DadosInvalidosException("Numero telefone é obrigatorio e deve conter 9 algarismos");
+		}
+		
+		if(numeroDDD == null || numeroDDD.length()>3) {
+			throw new DadosInvalidosException("Numero ddd é obrigatorio e deve conter 3 algarismos");
+		}
+		
+		if(numeroDDI == null || numeroDDI.length()>3) {
+			throw new DadosInvalidosException("Numero ddi é obrigatorio e deve conter 3 algarismos");
+		}
 	}
 	
 	
