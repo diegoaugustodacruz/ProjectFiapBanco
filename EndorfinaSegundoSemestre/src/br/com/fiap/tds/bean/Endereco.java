@@ -40,6 +40,18 @@ public class Endereco {
 		this.estado = estado;
 	}
 
+	
+
+	public Endereco(int numeroCasa, int numeroCEP, String nomeRua, String bairro, String cidade, String estado) {
+		super();
+		this.numeroCasa = numeroCasa;
+		this.numeroCEP = numeroCEP;
+		this.nomeRua = nomeRua;
+		this.bairro = bairro;
+		this.cidade = cidade;
+		this.estado = estado;
+	}
+
 
 	public int getIdEndereco() {
 		return idEndereco;

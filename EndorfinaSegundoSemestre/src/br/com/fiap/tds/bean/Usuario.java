@@ -21,6 +21,17 @@ public class Usuario {
 		this.dataCadastro = dataCadastro;
 		this.dataNascimento = dataNascimento;
 	}
+	
+	
+
+
+	public Usuario(String nome, String email, String senha, String dataNascimento) {
+		super();
+		this.nome = nome;
+		this.email = email;
+		this.senha = senha;
+		this.dataNascimento = dataNascimento;
+	}
 
 
 	public int getIdUsuario() {

@@ -22,8 +22,8 @@ public class HobbyProfissionalDAO {
 				+ " VALUES (?, ?)");
 		
 		//passar os valores para o comando SQL
-		stmt.setInt(1, hobbyProfissional.getIdHobby());
-		stmt.setInt(2, hobbyProfissional.getIdProfissional());
+//		stmt.setInt(1, hobbyProfissional.getIdHobby());
+//		stmt.setInt(2, hobbyProfissional.getIdProfissional());
 		
 		//Executar o comando SQL
 		stmt.executeUpdate();
