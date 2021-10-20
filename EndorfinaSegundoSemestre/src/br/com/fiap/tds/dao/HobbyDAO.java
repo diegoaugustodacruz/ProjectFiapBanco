@@ -12,7 +12,7 @@ import br.com.fiap.tds.bean.Usuario;
 import br.com.fiap.tds.exception.IdNotFoundException;
 
 /**
- * Classe que realiza operacoes basicas com o banco de dados
+ * Classe que realiza operacoes basicas do hobby com o banco de dados
  * @author Endorfina
  *
  */

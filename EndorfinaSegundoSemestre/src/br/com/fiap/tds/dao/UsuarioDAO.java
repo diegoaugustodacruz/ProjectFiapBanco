@@ -30,7 +30,7 @@ public class UsuarioDAO {
 	/**
 	 * Pesquisa os usuarios por parte do nome
 	 * @param nome Termo de pesquisa
-	 * @return List<Produto> Lista dos usuarios encontrados
+	 * @return List<Usuario> Lista dos usuarios encontrados
 	 * @throws SQLException
 	 */
 	public List<Usuario> buscarPorNome(String nome) throws SQLException{

@@ -72,7 +72,7 @@ public class HobbyBO {
 	
 	/**
 	 * Regras de negocio para listar os hobbies cadastrados
-	 * @return Lista usuarios
+	 * @return Lista hobbies
 	 * @throws SQLException
 	 */
 	public List<Hobby> listar() throws SQLException{

@@ -39,10 +39,8 @@ public class TelefoneDAO {
 		PreparedStatement stmt = conexao.prepareStatement("SELECT * FROM ENDORF_TEL WHERE NR_NUMERO LIKE ?");
 
 		String numero = Integer.toString(ddd);
-		//Passar o parametro para a query
 		stmt.setString(1,"%" + numero + "%");		
 		
-		//Executar
 		ResultSet result = stmt.executeQuery();
 		
 		return parseList(result);
