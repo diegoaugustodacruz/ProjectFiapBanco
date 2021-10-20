@@ -41,7 +41,6 @@
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
     <fullyQualifiedTypeName name="java.sql.Date"/>
-    <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="br.com.fiap.tds.exception.DadosInvalidosException"/>
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
     <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
@@ -49,4 +48,6 @@
     <fullyQualifiedTypeName name="br.com.fiap.tds.exception.IdNotFoundException"/>
     <fullyQualifiedTypeName name="java.sql.SQLException"/>
     <fullyQualifiedTypeName name="br.com.fiap.tds.bean.Telefone"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="br.com.fiap.tds.bean.HobbyProfissional"/>
 </qualifiedTypeNameHistroy>
