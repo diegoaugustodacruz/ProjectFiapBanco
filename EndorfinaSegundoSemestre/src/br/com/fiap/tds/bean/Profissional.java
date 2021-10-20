@@ -19,6 +19,17 @@ public class Profissional{
 		this.dataCadastro = dataCadastro;
 		this.dataNascimento = dataNascimento;
 	}
+	
+	
+
+	public Profissional(int idProfissional, String nome, String email, String senha, String dataNascimento) {
+		super();
+		this.idProfissional = idProfissional;
+		this.nome = nome;
+		this.email = email;
+		this.senha = senha;
+		this.dataNascimento = dataNascimento;
+	}
 
 	public int getIdProfissional() {
 		return idProfissional;

@@ -22,7 +22,6 @@ public class Usuario {
 		this.dataNascimento = dataNascimento;
 	}
 	
-	
 
 
 	public Usuario(String nome, String email, String senha, String dataNascimento) {
@@ -31,6 +30,18 @@ public class Usuario {
 		this.email = email;
 		this.senha = senha;
 		this.dataNascimento = dataNascimento;
+	}
+
+	
+
+	public Usuario(int idUsuario, String nome, String email, String senha, String dataNascimento) {
+		super();
+		this.idUsuario = idUsuario;
+		this.nome = nome;
+		this.email = email;
+		this.senha = senha;
+		this.dataNascimento = dataNascimento;
+
 	}
 
 

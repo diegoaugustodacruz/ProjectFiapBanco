@@ -14,6 +14,13 @@ public class Hobby {
 		this.idHobby = idHobby;
 		this.nomeHobby = nomeHobby;
 	}
+	
+	
+
+	public Hobby(String nomeHobby) {
+		super();
+		this.nomeHobby = nomeHobby;
+	}
 
 	public int getIdHobby() {
 		return idHobby;
