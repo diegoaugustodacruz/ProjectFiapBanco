@@ -39,10 +39,8 @@ public class EnderecoDAO {
 	public List<Endereco> buscarPorNome(String nome) throws SQLException{
 		PreparedStatement stmt = conexao.prepareStatement("SELECT * FROM ENDORF_END WHERE NM_RUA LIKE ?");
 
-		//Passar o parametro para a query
 		stmt.setString(1,"%" + nome + "%");		
 		
-		//Executar
 		ResultSet result = stmt.executeQuery();
 		
 		return parseList(result);
@@ -198,7 +196,6 @@ public class EnderecoDAO {
 		String nomeCidade = result.getString("NM_CIDADE");
 		String nomeEstado = result.getString("NM_ESTADO");
 
-		//int idEndereco, int numeroCasa, int numeroCEP, String nomeRua, String bairro, String cidade, String estado
 		Endereco endereco = new Endereco(id, numeroCasa, numeroCEP, nomeRua, nomeBairro, nomeCidade, nomeEstado);
 		
 		return endereco;			

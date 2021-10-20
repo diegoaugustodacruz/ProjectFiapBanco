@@ -18,6 +18,9 @@ import br.com.fiap.tds.exception.IdNotFoundException;
 public class UsuarioBO {	
 	
 	private UsuarioDAO dao;
+	private EnderecoBO enderecoBO;
+	private Connection conexao;	
+
 	
 	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	LocalDateTime now = LocalDateTime.now();
@@ -96,7 +99,9 @@ public class UsuarioBO {
 	 * @throws IdNotFoundException
 	 */
 	public void remover(int codigo) throws SQLException, IdNotFoundException{
-		dao.remover(codigo);
+		dao.remover(codigo);		
+		
+		
 	}	
 	
 	/**

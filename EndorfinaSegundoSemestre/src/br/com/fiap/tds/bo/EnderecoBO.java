@@ -135,6 +135,8 @@ public class EnderecoBO {
 	 * @throws DadosInvalidosException
 	 */
 	public void validar(Endereco endereco) throws SQLException, DadosInvalidosException{
+		String cep = Integer.toString(endereco.getNumeroCEP());
+
 		if(endereco.getCidade()==null || endereco.getCidade().length()>40) {
 			throw new DadosInvalidosException("Nome cidade é obrigatoria e deve conter menos de 40 caracteres");
 		}
@@ -149,6 +151,11 @@ public class EnderecoBO {
 		
 		if(endereco.getBairro().length()>40) {
 			throw new DadosInvalidosException("Nome bairro deve conter menos de 40 caracteres");
+		}
+		
+		if(cep.length()>7) {
+			throw new DadosInvalidosException("CEP deve conter menos de 8 caracteres");
+
 		}
 	}
 	
