@@ -27,8 +27,8 @@ public class UsuarioBO {
 	int anoAtual = Integer.parseInt(hoje.substring(6));
 	
 	/**
-	 * Construtor que recebe a conexao
-	 * @param conexao
+	 * Construtor que recebe a conexao 
+	 * @param conexao conexao com o banco de dados
 	 */
 	public UsuarioBO(Connection conexao) {
 		dao = new UsuarioDAO(conexao);
@@ -46,29 +46,65 @@ public class UsuarioBO {
 		dao.cadastrar(usuario);
 	}
 	
+	/**
+	 * Regras de negocio para buscar informacoes pelo nome de um usuario
+	 * @param nome Nome do usuario
+	 * @return retorna lista com as informacoes
+	 * @throws SQLException
+	 */
 	public List<Usuario> buscarPorNome(String nome) throws SQLException{
 		return dao.buscarPorNome(nome);
 	}
 
+	/**
+	 * Regras de negocio para atualizar um usuario
+	 * @param usuario Usuario com valores a serem atualizados
+	 * @throws SQLException
+	 * @throws IdNotFoundException
+	 * @throws DadosInvalidosException
+	 */
 	public void atualizar(Usuario usuario) throws SQLException, IdNotFoundException, DadosInvalidosException{
 		validar(usuario);
 
 		dao.atualizar(usuario);
 	}
 	
-	
+	/**
+	 * Regras de negocio para pesquisar um usuario pela sua PK
+	 * @param codigo PK do usuario
+	 * @return informacoes do usuario
+	 * @throws SQLException
+	 * @throws IdNotFoundException
+	 */
 	public Usuario pesquisar(int codigo) throws SQLException, IdNotFoundException{
 		return dao.pesquisar(codigo);
 	}
 	
+	/**
+	 * Regras de negocio para listar os usuarios cadastrados
+	 * @return Lista usuarios
+	 * @throws SQLException
+	 */
 	public List<Usuario> listar() throws SQLException{
 		return dao.listar();
 	}
 	
+	/**
+	 * Remove um usuario
+	 * @param codigo PK do usuario
+	 * @throws SQLException
+	 * @throws IdNotFoundException
+	 */
 	public void remover(int codigo) throws SQLException, IdNotFoundException{
 		dao.remover(codigo);
 	}	
 	
+	/**
+	 * Validacao das regras de negocio
+	 * @param usuario Usuario para ser cadastrado
+	 * @throws SQLException
+	 * @throws DadosInvalidosException
+	 */
 	public void validar(Usuario usuario)  throws SQLException, DadosInvalidosException{
 		int diaNascimento = Integer.parseInt(usuario.getDataNascimento().substring(0, 2));
 		int mesNascimento = Integer.parseInt(usuario.getDataNascimento().substring(3,5));

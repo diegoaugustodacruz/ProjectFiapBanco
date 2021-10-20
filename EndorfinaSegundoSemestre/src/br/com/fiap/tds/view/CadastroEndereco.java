@@ -9,8 +9,8 @@ import br.com.fiap.tds.bean.Usuario;
 import br.com.fiap.tds.bo.EnderecoBO;
 import br.com.fiap.tds.factory.ConnectionFactory;
 
-public class view {
-
+public class CadastroEndereco {
+	
 	public static void main(String[] args) {
 		Connection conexao = null;
 		
@@ -53,7 +53,7 @@ public class view {
 			String nomeEstado = (leitor.next() + leitor.nextLine());
 			
 			//int numeroCasa, int numeroCEP, String nomeRua, String bairro, String cidade, String estado
-			Endereco endereco = new Endereco(numeroCasa,numeroCEP,  nomeRua, nomeBairro, nomeCidade, nomeEstado);
+			Endereco endereco = new Endereco(numeroCasa,numeroCEP,  nomeRua, nomeBairro, nomeCidade, nomeEstado, usuario);
 			//Obter uma conexão
 			conexao = ConnectionFactory.getConnection();
 			
@@ -83,5 +83,5 @@ public class view {
 		}
 		
 	}//main
-	
+
 }

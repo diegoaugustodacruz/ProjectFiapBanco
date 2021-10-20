@@ -14,7 +14,7 @@ import br.com.fiap.tds.exception.IdNotFoundException;
 
 /**
  * Classe que contem as regras de negocios e validacoes do profissional
- * @author accountfy
+ * @author Endorfina
  *
  */
 public class ProfissionalBO {
@@ -48,6 +48,65 @@ public class ProfissionalBO {
 		dao.cadastrar(profissional);
 	}
 	
+	/**
+	 * Regras de negocio para buscar informacoes pelo nome de um profissional
+	 * @param nome Nome do profissional
+	 * @return retorna lista com as informacoes
+	 * @throws SQLException
+	 */
+	public List<Profissional> buscarPorNome(String nome) throws SQLException{
+		return dao.buscarPorNome(nome);
+	}
+	
+	/**
+	 * Regras de negocio para atualizar um profissional
+	 * @param profissional Profissional com valores a serem atualizados
+	 * @throws SQLException
+	 * @throws IdNotFoundException
+	 * @throws DadosInvalidosException
+	 */
+	public void atualizar(Profissional profissional) throws SQLException, IdNotFoundException, DadosInvalidosException{
+		validar(profissional);		
+		dao.atualizar(profissional);
+	}	
+		
+	/**
+	 * Regras de negocio para pesquisar um profissional pela sua PK
+	 * @param codigo PK do profissional
+	 * @return informacoes do profissional
+	 * @throws SQLException
+	 * @throws IdNotFoundException
+	 */
+	public Profissional pesquisar(int codigo) throws SQLException, IdNotFoundException{
+		return dao.pesquisar(codigo);
+	}
+	
+	/**
+	 * Regras de negocio para listar os profissionais cadastrados
+	 * @return Lista profissionais
+	 * @throws SQLException
+	 */
+	public List<Profissional> listar() throws SQLException{
+		return dao.listar();
+	}
+	
+	
+	/**
+	 * Remove um profissional
+	 * @param codigo PK do profisisonal
+	 * @throws SQLException
+	 * @throws IdNotFoundException
+	 */
+	public void remover(int codigo) throws SQLException, IdNotFoundException{
+		dao.remover(codigo);
+	}
+	
+	/**
+	 * Validacao das regras de negocio
+	 * @param profissional Profissional para ser cadastrado
+	 * @throws SQLException
+	 * @throws DadosInvalidosException
+	 */
 	public void validar(Profissional profissional) throws SQLException, DadosInvalidosException{
 		int diaNascimento = Integer.parseInt(profissional.getDataNascimento().substring(0, 2));
 		int mesNascimento = Integer.parseInt(profissional.getDataNascimento().substring(3,5));
@@ -77,22 +136,5 @@ public class ProfissionalBO {
 			throw new DadosInvalidosException("Senha é obrigatorio e deve conter menos de 50 caracteres");
 		}
 	}
-	
-	public List<Profissional> buscarPorNome(String nome) throws SQLException{
-		return dao.buscarPorNome(nome);
-	}
-	
-	public void remover(int codigo) throws SQLException, IdNotFoundException{
-		dao.remover(codigo);
-	}
-	
-	public void atualizar(Profissional profissional) throws SQLException, IdNotFoundException, DadosInvalidosException{
-		validar(profissional);		
-		dao.atualizar(profissional);
-	}
-	
-	
-	
-	
-	
 }
+

@@ -25,7 +25,7 @@ public class UsuarioProfissionalBO {
 		
 	}
 	
-	public void cadastrarUsuario(UsuarioProfissional usuarioProfissional) throws SQLException, DadosInvalidosException{
+	public void cadastrar(UsuarioProfissional usuarioProfissional) throws SQLException, DadosInvalidosException{
 		conexao.setAutoCommit(false);
 		usuarioBO.cadastrar(usuarioProfissional.getUsuario());
 		profissionalBO.cadastrar(usuarioProfissional.getProfissional());		
@@ -39,9 +39,7 @@ public class UsuarioProfissionalBO {
 		}
 	}
 	
-	public UsuarioProfissional pesquisar(int codigoUsuario, int codigoProfissional) throws SQLException, IdNotFoundException{
-		return usuarioProfissionalDAO.pesquisar(codigoUsuario, codigoProfissional);
-	}
+	
 	
 	public void remover(int codigo) throws SQLException, IdNotFoundException{
 		usuarioProfissionalDAO.remover(codigo);

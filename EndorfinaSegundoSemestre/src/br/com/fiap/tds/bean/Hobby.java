@@ -31,6 +31,10 @@ public class Hobby {
 		this.nomeHobby = nomeHobby;
 	}
 
+	@Override
+	public String toString() {
+		return "Nome Hobby: " + nomeHobby;
+	}
 	
 
 }

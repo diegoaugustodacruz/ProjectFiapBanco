@@ -31,16 +31,13 @@ public class UsuarioDAO {
 	 * Pesquisa os usuarios por parte do nome
 	 * @param nome Termo de pesquisa
 	 * @return List<Produto> Lista dos usuarios encontrados
-	 * @throws SQLException, IdNotFoundException
+	 * @throws SQLException
 	 */
 	public List<Usuario> buscarPorNome(String nome) throws SQLException{
-		//Criar o comando SQL
 		PreparedStatement stmt = conexao.prepareStatement("SELECT * FROM ENDORF_USUARIO WHERE NM_USUARIO LIKE ?");
 
-		//Passar o parametro para a query
 		stmt.setString(1,"%" + nome + "%");		
 		
-		//Executar
 		ResultSet result = stmt.executeQuery();
 		
 		return parseList(result);	
@@ -49,9 +46,9 @@ public class UsuarioDAO {
 	}
 	
 	/**
-	 * Rece o resultado de uma pesquisa e retora uma lista
+	 * Recebe o resultado de uma pesquisa e retora uma lista
 	 * @param result Resultado de uma pesquisa
-	 * @return List<Produto> lista de usuarios
+	 * @return List<Usuario> lista de usuarios
 	 * @throws SQLException
 	 */
 	private List<Usuario> parseList(ResultSet result) throws SQLException{

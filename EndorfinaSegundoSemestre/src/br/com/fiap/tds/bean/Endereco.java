@@ -40,9 +40,9 @@ public class Endereco {
 		this.estado = estado;
 	}
 
-	
 
-	public Endereco(int numeroCasa, int numeroCEP, String nomeRua, String bairro, String cidade, String estado) {
+	public Endereco(int numeroCasa, int numeroCEP, String nomeRua, String bairro, String cidade, String estado,
+			Profissional profissional) {
 		super();
 		this.numeroCasa = numeroCasa;
 		this.numeroCEP = numeroCEP;
@@ -50,6 +50,20 @@ public class Endereco {
 		this.bairro = bairro;
 		this.cidade = cidade;
 		this.estado = estado;
+		this.profissional = profissional;
+	}
+
+
+	public Endereco(int numeroCasa, int numeroCEP, String nomeRua, String bairro, String cidade, String estado,
+			Usuario usuario) {
+		super();
+		this.numeroCasa = numeroCasa;
+		this.numeroCEP = numeroCEP;
+		this.nomeRua = nomeRua;
+		this.bairro = bairro;
+		this.cidade = cidade;
+		this.estado = estado;
+		this.usuario = usuario;
 	}
 
 
@@ -142,6 +156,11 @@ public class Endereco {
 		this.profissional = profissional;
 	}
 	
-	
+	@Override
+	public String toString() {
+		
+		return "Numero da casa: " + numeroCasa + ", numero CEP: " + numeroCEP
+				+", nome rua: "+nomeRua + ", bairro: " +bairro + ", cidade: " + cidade +", estado:"+ estado;
+	}
 	
 }

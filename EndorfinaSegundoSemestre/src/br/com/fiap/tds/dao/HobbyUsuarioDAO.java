@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import br.com.fiap.tds.bean.HobbyUsuario;
+import br.com.fiap.tds.exception.IdNotFoundException;
 
 public class HobbyUsuarioDAO {
 
@@ -15,28 +16,29 @@ public class HobbyUsuarioDAO {
 		
 	}
 
-	public void cadastrarUsuario(HobbyUsuario hobbyUsuario) throws SQLException {
-		//Criar o comando SQL
+	public void cadastrar(HobbyUsuario hobbyUsuario) throws SQLException {
 		PreparedStatement stmt = conexao.prepareStatement("INSERT INTO ENDORF_HOBBY_USUARIO "
-				+ "(ID_HOBBY, ID_PROFISSIONAL)"
+				+ "(ID_HOBBY, ID_USUARIO)"
 				+ " VALUES (?, ?)");
 		
-		//passar os valores para o comando SQL
-//		stmt.setInt(1, hobbyUsuario.getIdHobby());
-//		stmt.setInt(2, hobbyUsuario.getIdUsuario());
+		stmt.setInt(1, hobbyUsuario.getHobby().getIdHobby());
+		stmt.setInt(2, hobbyUsuario.getUsuario().getIdUsuario());
 		
-		//Executar o comando SQL
 		stmt.executeUpdate();
 	}
 	
 	
-		//Lista e remover
-	
-		public void atualizar(HobbyUsuario hobbyUsuario) {
-			
-		}
+	public void remover(int codigoUsuario) throws SQLException, IdNotFoundException{
 		
-		public HobbyUsuario pesquisar(int codigo) {
-			return null;
+		PreparedStatement stmt = conexao.prepareStatement("DELETE FROM ENDORF_HOBBY_USUARIO WHERE ID_USUARIO = ?");
+
+		stmt.setInt(1, codigoUsuario);	
+		
+		int qtd = stmt.executeUpdate();
+
+		if(qtd == 0) {
+			throw new IdNotFoundException("Hobby/Usuario não encontrado para ser removido");
 		}
+	}	
+		
 }

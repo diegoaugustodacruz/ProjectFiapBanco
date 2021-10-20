@@ -1,0 +1,12 @@
+As funcionalidades funcionalidades emplementadas são de integração no banco de dados, segue:
+	- Cadastro
+	- Atualização
+	- Pesquisar por PK
+	- Listagem
+	- Remoção
+	- Pesquisa por nome
+	
+As tabelas associativas foram feitas as seguintes funcionalidades:
+	- Cadastro
+	- Remoção
+	

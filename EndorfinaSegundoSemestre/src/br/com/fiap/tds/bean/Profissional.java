@@ -69,9 +69,10 @@ public class Profissional{
 	}
 
 
-	
-	
-	
+	@Override
+	public String toString() {
+		return "Id: " + idProfissional + ", nome: " + nome + ", email: " + email + ", data cadastro: " + dataCadastro + ", data nascimento: " + dataNascimento;
+	}
 
 	
 	

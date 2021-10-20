@@ -12,8 +12,8 @@ import br.com.fiap.tds.bean.Usuario;
 import br.com.fiap.tds.exception.IdNotFoundException;
 
 /**
- * Classe que realiza operacoes basias com o profissional no banco
- * @author accountfy
+ * Classe que realiza operacoes basicas com o profissional no banco
+ * @author Endorfina
  *
  */
 public class ProfissionalDAO {
@@ -29,7 +29,12 @@ public class ProfissionalDAO {
 		
 	}
 	
-	
+	/**
+	 * Pesquisa os profissionais por parte do nome
+	 * @param nome Termo de pesquisa
+	 * @return List<Profissional> Lista dos profissionais encontrados
+	 * @throws SQLException
+	 */
 	public List<Profissional> buscarPorNome(String nome) throws SQLException{
 		PreparedStatement stmt = conexao.prepareStatement("SELECT * FROM ENDORF_PROFI WHERE NM_PROFISSIONAL LIKE ?");
 		stmt.setString(1,"%" + nome + "%");		
@@ -40,6 +45,12 @@ public class ProfissionalDAO {
 		return parseList(result);
 	}
 	
+	/**
+	 * Recebe o resultado de uma pesquisa e retora uma lista
+	 * @param result Resultado de uma pesquisa
+	 * @return List<Profissional> lista de profissionais
+	 * @throws SQLException
+	 */
 	private List<Profissional> parseList(ResultSet result) throws SQLException{
 		List<Profissional> lista = new ArrayList<Profissional>();
 		
@@ -76,12 +87,12 @@ public class ProfissionalDAO {
 		}
 	}
 	
-		/**
-		 * Atualiza profissional no banco de dados
-		 * @param profissional Profissional com valores que serao atualizados
-		 * @throws SQLException
-		 * @throws IdNotFoundException
-		 */
+	/**
+	 * Atualiza profissional no banco de dados
+	 * @param profissional Profissional com valores que serao atualizados
+	 * @throws SQLException
+	 * @throws IdNotFoundException
+	 */
 	public void atualizar(Profissional profissional) throws SQLException, IdNotFoundException{
 		
 		pesquisar(profissional.getIdProfissional());

@@ -29,6 +29,23 @@ public class Telefone {
 		this.ddi = ddi;
 		this.ddd = ddd;
 		this.numeroTel = numeroTel;
+	}	
+
+	public Telefone(int ddi, int ddd, int numeroTel, Usuario usuario) {
+		super();
+		this.ddi = ddi;
+		this.ddd = ddd;
+		this.numeroTel = numeroTel;
+		this.usuario = usuario;
+	}	
+	
+
+	public Telefone(int ddi, int ddd, int numeroTel, Profissional profissional) {
+		super();
+		this.ddi = ddi;
+		this.ddd = ddd;
+		this.numeroTel = numeroTel;
+		this.profissional = profissional;
 	}
 
 	public int getIdTelefone() {
@@ -79,7 +96,10 @@ public class Telefone {
 		this.profissional = profissional;
 	}
 
-	
+	@Override
+	public String toString() {
+		return "DDI: " + ddd + ", DDD: " + ddd + ", numero telefone: " + numeroTel;
+	}
 
 	
 
