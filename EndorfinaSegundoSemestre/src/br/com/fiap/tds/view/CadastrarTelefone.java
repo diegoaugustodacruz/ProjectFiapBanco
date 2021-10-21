@@ -17,7 +17,7 @@ public class CadastrarTelefone {
 		
 		try {
 			
-Scanner leitor = new Scanner(System.in);
+			Scanner leitor = new Scanner(System.in);
 			
 			System.out.println("Digite o nome da usuario: ");
 			String nomeUsuario = (leitor.next() + leitor.nextLine());
@@ -41,10 +41,9 @@ Scanner leitor = new Scanner(System.in);
 			int ddd = leitor.nextInt();	
 			
 			System.out.println("Digite o ddi: ");
-			int ddi = leitor.nextInt();				
+			int ddi = leitor.nextInt();			
 			
 			
-			//int numeroCasa, int numeroCEP, String nomeRua, String bairro, String cidade, String estado
 			Telefone telefone = new Telefone(ddi, ddd, numero, usuario);
 			//Obter uma conexão
 			conexao = ConnectionFactory.getConnection();
