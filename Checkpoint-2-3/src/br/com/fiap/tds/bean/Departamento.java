@@ -41,5 +41,10 @@ public class Departamento {
 		this.sigla = sigla;
 	}
 	
+	@Override
+	public String toString() {
+		return "Nome: " + nome + ", sigla: " + sigla;
+	}
+	
 	
 }

@@ -106,6 +106,9 @@ public class Funcionario {
 		this.departamento = departamento;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Nome: " + nome + ", CPF: " + cpf + ", Data Nascimento: " + dataNascimento + ", Estado Civil: " + estadoCivil + ", Salario: " + salario + ", Data Admissao: " + dataAdmissao;
+	}
 	
 }
