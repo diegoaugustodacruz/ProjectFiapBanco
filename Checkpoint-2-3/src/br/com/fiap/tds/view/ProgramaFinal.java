@@ -13,7 +13,7 @@ import br.com.fiap.tds.bo.DepartamentoBO;
 import br.com.fiap.tds.bo.FuncionarioBO;
 import br.com.fiap.tds.factory.ConnectionFactory;
 
-public class View {
+public class ProgramaFinal {
 	
 public static void main(String[] args) {
 		
