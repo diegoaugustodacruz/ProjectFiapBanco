@@ -41,7 +41,22 @@ public class Funcionario {
 		this.salario = salario;
 		this.dataAdmissao = dataAdmissao;
 	}
+	
+	
 
+	public Funcionario(String nome, String cpf, String dataNascimento, String estadoCivil, double salario,
+			String dataAdmissao, Departamento departamento) {
+		super();
+		this.nome = nome;
+		this.cpf = cpf;
+		this.dataNascimento = dataNascimento;
+		this.estadoCivil = estadoCivil;
+		this.salario = salario;
+		this.dataAdmissao = dataAdmissao;
+		this.departamento = departamento;
+	}
+
+	
 	public int getCodigo() {
 		return codigo;
 	}

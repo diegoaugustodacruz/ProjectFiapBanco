@@ -37,7 +37,7 @@ public class FuncionarioBO {
 	 * @throws SQLException
 	 * @throws DadosInvalidosException
 	 */
-	public void cadastrarUsuario(Funcionario funcionario) throws SQLException, DadosInvalidosException{
+	public void cadastrar(Funcionario funcionario) throws SQLException, DadosInvalidosException{
 		validar(funcionario);
 		conexao.setAutoCommit(false);
 		departamentoBO.cadastrar(funcionario.getDepartamento());

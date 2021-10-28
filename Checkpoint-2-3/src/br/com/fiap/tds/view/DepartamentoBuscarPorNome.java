@@ -7,7 +7,9 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import br.com.fiap.tds.bean.Departamento;
+import br.com.fiap.tds.bean.Funcionario;
 import br.com.fiap.tds.bo.DepartamentoBO;
+import br.com.fiap.tds.bo.FuncionarioBO;
 import br.com.fiap.tds.factory.ConnectionFactory;
 
 public class DepartamentoBuscarPorNome {
@@ -18,19 +20,17 @@ public class DepartamentoBuscarPorNome {
 			Connection conexao = null;
 
 			try {
-				// Obter a conex�o
 				conexao = ConnectionFactory.getConnection();
-				// Instanciar o Bo
-				DepartamentoBO bo = new DepartamentoBO(conexao);
-				// Ler o nome
-				String nome = JOptionPane.showInputDialog("Digite o nome");
-				// Pesquisar por nome
-				List<Departamento> lista = bo.buscarPorNome(nome);
-				// Exibir o resultado
-				for (Departamento departamento : lista) {
-					JOptionPane.showMessageDialog(null, departamento);
+				
+				FuncionarioBO bo2 = new FuncionarioBO(conexao);
+				
+				String nome2 = JOptionPane.showInputDialog("Digite o nome");
+				
+				List<Funcionario> lista = bo2.buscarPorNome(nome2);
+				
+				for (Funcionario funcionario2 : lista) {
 
-					//System.out.println(departamento);
+					JOptionPane.showMessageDialog(null, funcionario2);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();

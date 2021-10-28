@@ -92,22 +92,22 @@ public class FuncionarioDAO {
 	public void atualizar(Funcionario funcionario) throws SQLException, IdNotFoundException{
 		pesquisar(funcionario.getCodigo());
 		
-		PreparedStatement stmt = conexao.prepareStatement("INSERT INTO T_SIP_FUNCIONARIO "
-				+ "(CD_FUNC, CD_DEPTO, NM_FUNCIONARIO, DS_CPF, DT_NASCIMENTO, DS_ESTADO_CIVIL, VL_SALARIO, DT_ADMISSAO)"
-				+ " VALUES (SQ_T_SIP_FUNCIONARIO, ?, ?, ?, ?, ?, ?, ?)");
+		PreparedStatement stmt = conexao.prepareStatement("UPDATE T_SIP_FUNCIONARIO SET NM_FUNCIONARIO = ?, DS_CPF = ?, "
+				+ "DT_NASCIMENTO = TO_DATE(?,'DD/MM/YYYY'), DS_ESTADO_CIVIL = ?, VL_SALARIO = ?, DT_ADMISSAO = TO_DATE(?,'DD/MM/YYYY') "
+				+ "WHERE CD_FUNC = ?");
 		
-		stmt.setInt(1, funcionario.getDepartamento().getCodigo());
-		stmt.setString(2, funcionario.getNome());
-		stmt.setString(3, funcionario.getCpf());
-		stmt.setString(4, funcionario.getDataNascimento());
-		stmt.setString(5, funcionario.getEstadoCivil());
-		stmt.setDouble(6, funcionario.getSalario());
-		stmt.setString(7, funcionario.getDataAdmissao());		
+		stmt.setString(1, funcionario.getNome());
+		stmt.setString(2, funcionario.getCpf());
+		stmt.setString(3, funcionario.getDataNascimento());
+		stmt.setString(4, funcionario.getEstadoCivil());
+		stmt.setDouble(5, funcionario.getSalario());
+		stmt.setString(6, funcionario.getDataAdmissao());		
+		stmt.setInt(7, funcionario.getCodigo());
 
 		int qtd = stmt.executeUpdate();		
 
 		if(qtd == 0) {
-			throw new IdNotFoundException("Endereco não encontrado");
+			throw new IdNotFoundException("Funcionario não encontrado");
 		}
 		
 	}

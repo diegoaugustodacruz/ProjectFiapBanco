@@ -97,9 +97,10 @@ public class DepartamentoDAO {
 	public void atualizar(Departamento departamento) throws SQLException, IdNotFoundException{
 		pesquisar(departamento.getCodigo());
 		
-		PreparedStatement stmt = conexao.prepareStatement("UPDATE T_SIP_DEPTO SET NM_DEPTO = ?, DS_SIGLA = ?");
+		PreparedStatement stmt = conexao.prepareStatement("UPDATE T_SIP_DEPTO SET NM_DEPTO = ?, DS_SIGLA = ? WHERE CD_DEPTO = ?");
 		stmt.setString(1, departamento.getNome());
-		stmt.setString(2, departamento.getSigla());		
+		stmt.setString(2, departamento.getSigla());
+		stmt.setInt(3, departamento.getCodigo());
 
 		int qtd = stmt.executeUpdate();		
 
