@@ -1,0 +1,7 @@
+CREATE TABLE tb_alimento (
+cd_alimento INTEGER PRIMARY KEY,
+nm_alimento VARCHAR2(100) NOT NULL,
+vl_peso DECIMAL(3, 1) NOT NULL
+);
+
+CREATE SEQUENCE sq_tb_alimento START WITH 1 INCREMENT BY 1 NOCACHE;
