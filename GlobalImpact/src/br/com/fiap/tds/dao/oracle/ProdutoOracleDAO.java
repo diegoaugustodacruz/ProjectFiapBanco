@@ -7,11 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.fiap.tds.dao.ProdutoDAO;
 import br.com.fiap.tds.exception.IdNotFoundException;
 import br.com.fiap.tds.to.ProdutoTO;
-import br.com.fiap.tds.to.SupermercadoTO;
 
-public class ProdutoOracleDAO {
+public class ProdutoOracleDAO implements ProdutoDAO{
 	
 	private Connection conexao;
 
@@ -30,6 +30,7 @@ public class ProdutoOracleDAO {
 	 * @return List<Produto> Lista dos produtos encontrados
 	 * @throws SQLException
 	 */
+	@Override
 	public List<ProdutoTO> buscarPorNome(String nome) throws SQLException{
 		PreparedStatement stmt = conexao.prepareStatement("SELECT * FROM T_PRODUTO WHERE NM_PRODUTO LIKE ?");
 
@@ -66,6 +67,7 @@ public class ProdutoOracleDAO {
 	 * @param produto Produto com valores que serao cadastrados
 	 * @throws SQLException
 	 */
+	@Override
 	public void cadastrar(ProdutoTO produto) throws SQLException {
 
 		PreparedStatement stmt = conexao.prepareStatement("INSERT INTO T_PRODUTO "
@@ -95,6 +97,7 @@ public class ProdutoOracleDAO {
 	 * @throws SQLException
 	 * @throws IdNotFoundException
 	 */
+	@Override
 	public void atualizar(ProdutoTO produto) throws SQLException, IdNotFoundException{
 		pesquisar(produto.getIdProduto());
 		
@@ -123,6 +126,7 @@ public class ProdutoOracleDAO {
 	 * @throws SQLException
 	 * @throws IdNotFoundException
 	 */
+	@Override
 	public ProdutoTO pesquisar(int codigo) throws SQLException, IdNotFoundException{
 		
 		PreparedStatement stmt = conexao.prepareStatement("SELECT * FROM T_PRODUTO WHERE CD_PRODUTO = ?");
@@ -146,6 +150,7 @@ public class ProdutoOracleDAO {
 	 * @return List<Produto> Lista de produtos
 	 * @throws SQLException
 	 */
+	@Override
 	public List<ProdutoTO> listar() throws SQLException{
 		
 		PreparedStatement stmt = conexao.prepareStatement("SELECT * FROM T_PRODUTOS");
@@ -188,6 +193,7 @@ public class ProdutoOracleDAO {
 	 * @throws SQLException
 	 * @throws IdNotFoundException
 	 */
+	@Override
 	public void remover(int codigo) throws SQLException, IdNotFoundException{
 		
 		PreparedStatement stmt = conexao.prepareStatement("DELETE FROM T_PRODUTO WHERE CD_PRODUTO = ?");

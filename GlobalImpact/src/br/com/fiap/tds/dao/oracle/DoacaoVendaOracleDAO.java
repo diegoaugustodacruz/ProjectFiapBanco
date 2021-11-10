@@ -4,10 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import br.com.fiap.tds.dao.DoacaoVendaDAO;
 import br.com.fiap.tds.exception.IdNotFoundException;
 import br.com.fiap.tds.to.DoacaoVendaTO;
 
-public class DoacaoVendaOracleDAO {
+public class DoacaoVendaOracleDAO implements DoacaoVendaDAO{
 
 	private Connection conexao;
 
@@ -25,6 +26,7 @@ public class DoacaoVendaOracleDAO {
 	 * @param doacaoVenda DoacaoVenda com valores que serao cadastrados
 	 * @throws SQLException
 	 */
+	@Override
 	public void cadastrar(DoacaoVendaTO doacaoVenda) throws SQLException {
 		PreparedStatement stmt = conexao.prepareStatement("INSERT INTO T_DOACAO_VENDA "
 				+ "(CD_DOACAO_VENDA, CD_SUPERMERCADO, CD_PRODUTO) "
@@ -43,6 +45,7 @@ public class DoacaoVendaOracleDAO {
 	 * @throws SQLException
 	 * @throws IdNotFoundException
 	 */
+	@Override
 	public void remover(int codigoDoacaoVenda) throws SQLException, IdNotFoundException{
 		
 		PreparedStatement stmt = conexao.prepareStatement("DELETE FROM T_DOACAO_VENDA WHERE CD_DOACAO_VENDA = ?");

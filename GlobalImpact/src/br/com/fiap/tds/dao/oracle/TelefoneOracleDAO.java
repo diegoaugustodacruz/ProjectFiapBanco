@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.fiap.tds.dao.TelefoneDAO;
 import br.com.fiap.tds.exception.IdNotFoundException;
 import br.com.fiap.tds.to.TelefoneTO;
 
@@ -15,7 +16,7 @@ import br.com.fiap.tds.to.TelefoneTO;
  * @author Endorfina
  *
  */
-public class TelefoneOracleDAO {
+public class TelefoneOracleDAO implements TelefoneDAO{
 
 	private Connection conexao;
 
@@ -34,6 +35,7 @@ public class TelefoneOracleDAO {
 	 * @return List<Telefone> Lista dos telefones encontrados
 	 * @throws SQLException
 	 */
+	@Override
 	public List<TelefoneTO> buscarPorNumero(int ddd) throws SQLException{
 		PreparedStatement stmt = conexao.prepareStatement("SELECT * FROM T_TELEFONE WHERE NR_NUMERO LIKE ?");
 
@@ -67,6 +69,7 @@ public class TelefoneOracleDAO {
 	 * @param telefone Telefone com valores que serao cadastrados
 	 * @throws SQLException
 	 */
+	@Override
 	public void cadastrar(TelefoneTO telefone) throws SQLException {
 
 		PreparedStatement stmt = conexao.prepareStatement("INSERT INTO T_TELEFONE "
@@ -88,6 +91,7 @@ public class TelefoneOracleDAO {
 	 * @throws SQLException
 	 * @throws IdNotFoundException
 	 */
+	@Override
 	public void atualizar(TelefoneTO telefone) throws SQLException, IdNotFoundException{
 		pesquisar(telefone.getIdTelefone());
 		
@@ -114,6 +118,7 @@ public class TelefoneOracleDAO {
 	 * @throws SQLException
 	 * @throws IdNotFoundException
 	 */
+	@Override
 	public TelefoneTO pesquisar(int codigo) throws SQLException, IdNotFoundException{
 		
 		PreparedStatement stmt = conexao.prepareStatement("SELECT * FROM T_TELEFONE WHERE CD_TELEFONE = ?");
@@ -137,6 +142,7 @@ public class TelefoneOracleDAO {
 	 * @return List<Telefone> Lista de telefones
 	 * @throws SQLException
 	 */
+	@Override
 	public List<TelefoneTO> listar() throws SQLException{
 		
 		PreparedStatement stmt = conexao.prepareStatement("SELECT * FROM T_TELEFONE");
@@ -176,6 +182,7 @@ public class TelefoneOracleDAO {
 	 * @throws SQLException
 	 * @throws IdNotFoundException
 	 */
+	@Override
 	public void remover(int codigo) throws SQLException, IdNotFoundException{
 		
 		PreparedStatement stmt = conexao.prepareStatement("DELETE FROM T_TELEFONE WHERE CD_TELEFONE = ?");

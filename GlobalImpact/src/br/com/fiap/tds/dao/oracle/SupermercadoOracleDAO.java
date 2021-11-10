@@ -29,6 +29,7 @@ public class SupermercadoOracleDAO implements SupermercadoDAO{
 	 * @return List<Supermercado> Lista dos supermercados encontrados
 	 * @throws SQLException
 	 */
+	@Override
 	public List<SupermercadoTO> buscarPorNome(String nome) throws SQLException{
 		PreparedStatement stmt = conexao.prepareStatement("SELECT * FROM T_SUPERMERCADOS WHERE NM_SUPERMERCADO LIKE ?");
 
@@ -122,6 +123,7 @@ public class SupermercadoOracleDAO implements SupermercadoDAO{
 	 * @throws SQLException
 	 * @throws IdNotFoundException
 	 */
+	@Override
 	public SupermercadoTO pesquisar(int codigo) throws SQLException, IdNotFoundException{
 		
 		PreparedStatement stmt = conexao.prepareStatement("SELECT * FROM T_SUPERMERCADOS WHERE CD_SUPERMERCADO = ?");
@@ -145,6 +147,7 @@ public class SupermercadoOracleDAO implements SupermercadoDAO{
 	 * @return List<Supermercado> Lista de supermercado
 	 * @throws SQLException
 	 */
+	@Override
 	public List<SupermercadoTO> listar() throws SQLException{
 		
 		PreparedStatement stmt = conexao.prepareStatement("SELECT * FROM T_SUPERMERCADOS");
@@ -200,9 +203,5 @@ public class SupermercadoOracleDAO implements SupermercadoDAO{
 			throw new IdNotFoundException("Supermercado não encontrado para ser removido");
 		}
 	}
-	@Override
-	public SupermercadoTO buscar(int codigo) throws IdNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 }

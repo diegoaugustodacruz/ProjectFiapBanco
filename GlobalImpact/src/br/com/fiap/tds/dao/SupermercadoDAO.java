@@ -1,5 +1,6 @@
 package br.com.fiap.tds.dao;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -14,10 +15,10 @@ public interface SupermercadoDAO {
 	
 	void remover(int codigo) throws SQLException, IdNotFoundException;
 	
-	SupermercadoTO buscar(int codigo) throws IdNotFoundException, SQLException;
+	SupermercadoTO pesquisar(int codigo) throws IdNotFoundException, SQLException;
 	
 	List<SupermercadoTO> listar() throws SQLException;
 
-	
+	List<SupermercadoTO> buscarPorNome(String nome) throws SQLException;
 
 }

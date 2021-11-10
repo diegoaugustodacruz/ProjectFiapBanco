@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.fiap.tds.dao.EnderecoDAO;
 import br.com.fiap.tds.exception.IdNotFoundException;
 import br.com.fiap.tds.to.EnderecoTO;
 
@@ -15,7 +16,7 @@ import br.com.fiap.tds.to.EnderecoTO;
  * @author Endorfina
  *
  */
-public class EnderecoOracleDAO {
+public class EnderecoOracleDAO implements EnderecoDAO{
 
 	private Connection conexao;
 
@@ -34,6 +35,7 @@ public class EnderecoOracleDAO {
 	 * @return List<Endereco> Lista dos enderecos encontrados
 	 * @throws SQLException
 	 */
+	@Override
 	public List<EnderecoTO> buscarPorNome(String nome) throws SQLException{
 		PreparedStatement stmt = conexao.prepareStatement("SELECT * FROM T_ENDERECO WHERE NM_LOGRADOURO LIKE ?");
 
@@ -66,7 +68,8 @@ public class EnderecoOracleDAO {
 	 * @param endereco Endereco com valores que serao cadastrados
 	 * @throws SQLException
 	 */
-	public void cadastraUsuario(EnderecoTO endereco) throws SQLException {
+	@Override
+	public void cadastrar(EnderecoTO endereco) throws SQLException {
 		PreparedStatement stmt = conexao.prepareStatement("INSERT INTO T_ENDERECO "
 				+ "(CD_ENDERECO, NR_CEP, NM_LOGRADOURO, NR_LOGRADOURO, NM_BAIRRO, NM_CIDADE, NM_ESTADO, CD_SUPERMERCADO)"
 				+ " VALUES (SQ_T_ENDERECO.NEXTVAL, ?, ?, ?, ?, ?, ?, ?)");
@@ -91,6 +94,7 @@ public class EnderecoOracleDAO {
 	 * @throws SQLException
 	 * @throws IdNotFoundException
 	 */
+	@Override
 	public void atualizar(EnderecoTO endereco) throws SQLException, IdNotFoundException{
 		pesquisar(endereco.getIdEndereco());
 		
@@ -119,6 +123,7 @@ public class EnderecoOracleDAO {
 	 * @throws SQLException
 	 * @throws IdNotFoundException
 	 */
+	@Override
 	public EnderecoTO pesquisar(int codigo) throws SQLException, IdNotFoundException{
 		
 		PreparedStatement stmt = conexao.prepareStatement("SELECT * FROM T_ENDERECO WHERE CD_ENDERECO = ?");
@@ -142,6 +147,7 @@ public class EnderecoOracleDAO {
 	 * @return List<Enderecos> Lista de enderecos
 	 * @throws SQLException
 	 */
+	@Override
 	public List<EnderecoTO> listar() throws SQLException{
 		
 		PreparedStatement stmt = conexao.prepareStatement("SELECT * FROM T_ENDERECO");
@@ -184,6 +190,7 @@ public class EnderecoOracleDAO {
 	 * @throws SQLException
 	 * @throws IdNotFoundException
 	 */
+	@Override
 	public void remover(int codigo) throws SQLException, IdNotFoundException{
 		
 		PreparedStatement stmt = conexao.prepareStatement("DELETE FROM T_ENDERECO WHERE CD_ENDERECO = ?");
