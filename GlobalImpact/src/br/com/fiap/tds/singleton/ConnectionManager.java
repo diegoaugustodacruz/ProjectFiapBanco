@@ -26,7 +26,12 @@ public class ConnectionManager {
 		
 	}
 	
-	// 3- Método getInstance que retorna a unica instancia
+	/**
+	 * Obtem as informacoes do arquivo
+	 * @return manager
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	public static ConnectionManager getInstance() throws FileNotFoundException, IOException{
 		if(manager==null) {
 			manager = new ConnectionManager();
@@ -37,7 +42,12 @@ public class ConnectionManager {
 		return manager;
 	}
 	
-	//Método que obtem uma conexao cm o banco de dados
+	/**
+	 * Obtem a conexao com o banco
+	 * @return conexao
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	public Connection getConnection() throws ClassNotFoundException, SQLException{
 		//Registrar o driver
 		Class.forName(propriedades.getProperty("driver"));

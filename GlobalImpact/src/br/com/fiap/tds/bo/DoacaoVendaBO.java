@@ -14,6 +14,11 @@ import br.com.fiap.tds.factory.DaoFactory;
 import br.com.fiap.tds.singleton.ConnectionManager;
 import br.com.fiap.tds.to.DoacaoVendaTO;
 
+/**
+ * Classe que contem as regras de negocios e validacoes da doacao e venda
+ * @author Diego
+ *
+ */
 public class DoacaoVendaBO {
 
 	private DoacaoVendaDAO doacaoVendaDao;
@@ -21,7 +26,13 @@ public class DoacaoVendaBO {
 	private ProdutoDAO produtoDao;
 	private Connection conexao;
 
-	
+	/**
+	 * Construtor que inicializa a conexao
+	 * @throws ClassNotFoundException
+	 * @throws FileNotFoundException
+	 * @throws SQLException
+	 * @throws IOException
+	 */
 	public DoacaoVendaBO() throws ClassNotFoundException, FileNotFoundException, SQLException, IOException{
 		doacaoVendaDao = DaoFactory.getDoacaoVendaDAO();
 		supermercadoDao = DaoFactory.getSupermercadoDAO();

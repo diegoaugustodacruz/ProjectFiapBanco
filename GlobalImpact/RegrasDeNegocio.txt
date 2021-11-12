@@ -1,0 +1,42 @@
+ANDREY FERNANDEZ GARCIA RM 87219
+DIEGO AUGUSTO DA CRUZ RM 86877
+EMILY KEYTMANFRIN RM 87198
+GIOVANA NELO FURLAN RM 88936JOÃO 
+VICTOR DE JESUS MARTINS SILVA RM 89087
+
+
+REGRAS DE NEGÓCIO
+
+A plataforma consistirá em uma conexão entre supermercados e entidades assistenciais. 
+Estas poderão procurar supermercados que tenham descontos em produtos próximos à data de validade ou até mesmo doações de supermercados próximos a sua localidade, 
+tendo em vista toda a segurança alimentar vigente em leis e respaldados pela vigilância sanitária.
+
+Portanto, as funcionalidades desenvolvidas para o back-end em JAVA são:
+
+SUPERMERCADO:
+	-Cadastramento
+	-Atualização
+	-Remoção
+
+PRODUTO:
+	-Cadastramento
+	-Atualização
+	-Remoção
+
+TELEFONE:
+	-Cadastramento
+	-Atualização
+	-Remoção
+
+ENDERECO:
+	-Cadastramento
+	-Atualização
+	-Remoção
+	
+DOACAOVENDA:
+	-Cadastramento
+	-Remoção
+
+
+
+	

@@ -11,6 +11,11 @@ import br.com.fiap.tds.dao.ProdutoDAO;
 import br.com.fiap.tds.exception.IdNotFoundException;
 import br.com.fiap.tds.to.ProdutoTO;
 
+/**
+ * Classe que realiza operacoes basicas com o produto no banco
+ * @author Diego
+ *
+ */
 public class ProdutoOracleDAO implements ProdutoDAO{
 	
 	private Connection conexao;
@@ -101,8 +106,8 @@ public class ProdutoOracleDAO implements ProdutoDAO{
 	public void atualizar(ProdutoTO produto) throws SQLException, IdNotFoundException{
 		pesquisar(produto.getIdProduto());
 		
-		PreparedStatement stmt = conexao.prepareStatement("UPDATE T_PRODUTO SET NM_SUPERMERCADO = ?, QT_ESTOQUE = ?,"
-				+ " DT_VALIDADE = ?, VL_UNITARIO = ?, VL_TOTAL = ? WHERE ID_USUARIO = ?");
+		PreparedStatement stmt = conexao.prepareStatement("UPDATE T_PRODUTO SET NM_PRODUTO = ?, QT_ESTOQUE = ?,"
+				+ " DT_VALIDADE = ?, VL_UNITARIO = ?, VL_TOTAL = ? WHERE CD_PRODUTO = ?");
 		stmt.setString(1, produto.getNome());
 		stmt.setInt(2, produto.getQuantidade());
 		stmt.setString(3, produto.getDataValidade());

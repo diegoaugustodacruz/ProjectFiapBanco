@@ -14,10 +14,22 @@ import br.com.fiap.tds.exception.IdNotFoundException;
 import br.com.fiap.tds.factory.DaoFactory;
 import br.com.fiap.tds.to.SupermercadoTO;
 
+/**
+ * Classe que contem as regras de negocios e validacoes do supermercado
+ * @author Diego
+ *
+ */
 public class SupermercadoBO {
 	
 	private SupermercadoDAO supermercadoDao;
 	
+	/**
+	 * Construtor que inicializa a conexao
+	 * @throws ClassNotFoundException
+	 * @throws FileNotFoundException
+	 * @throws SQLException
+	 * @throws IOException
+	 */
 	public SupermercadoBO() throws ClassNotFoundException, FileNotFoundException, SQLException, IOException{
 		supermercadoDao = DaoFactory.getSupermercadoDAO();
 

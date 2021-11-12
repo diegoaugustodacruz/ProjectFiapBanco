@@ -7,14 +7,10 @@ import br.com.fiap.tds.to.ProdutoTO;
 
 public class ProdutoCadastrar {
 	
-	//Cadastro de produto
-	public static void main(String[] args) {
+	public static void main(String[] args) {		
 		
-		
-		//Instanciar um Alimento
 		ProdutoTO produto = new ProdutoTO();
 		
-		//Ler os dados
 		Scanner leitor = new Scanner(System.in);
 		
 		System.out.println("Digite o nome");

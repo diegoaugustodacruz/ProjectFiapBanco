@@ -11,6 +11,11 @@ import br.com.fiap.tds.dao.SupermercadoDAO;
 import br.com.fiap.tds.exception.IdNotFoundException;
 import br.com.fiap.tds.to.SupermercadoTO;
 
+/**
+ * Classe que realiza operacoes basicas com o supermercado no banco
+ * @author Diego
+ *
+ */
 public class SupermercadoOracleDAO implements SupermercadoDAO{
 	private Connection conexao;
 
@@ -98,14 +103,13 @@ public class SupermercadoOracleDAO implements SupermercadoDAO{
 	public void atualizar(SupermercadoTO supermercado) throws SQLException, IdNotFoundException{
 		pesquisar(supermercado.getCodigo());
 		
-		PreparedStatement stmt = conexao.prepareStatement("UPDATE T_SUPERMERCADOS SET NM_SUPERMERCADO = ?, ST_ATIVO = ?,"
-				+ " NR_CNPJ = ?, DS_EMAIL = ?, DS_SENHA = ? WHERE ID_USUARIO = ?");
+		PreparedStatement stmt = conexao.prepareStatement("UPDATE T_SUPERMERCADOS SET NM_SUPERMERCADO = ?,"
+				+ " NR_CNPJ = ?, DS_EMAIL = ?, DS_SENHA = ? WHERE CD_SUPERMERCADO = ?");
 		stmt.setString(1, supermercado.getNome());
-		stmt.setString(2, supermercado.getAtivo());
-		stmt.setString(3, supermercado.getCnpj());
-		stmt.setString(4, supermercado.getEmail());
-		stmt.setString(5, supermercado.getSenha());		
-		stmt.setInt(6, supermercado.getCodigo());
+		stmt.setString(2, supermercado.getCnpj());
+		stmt.setString(3, supermercado.getEmail());
+		stmt.setString(4, supermercado.getSenha());		
+		stmt.setInt(5, supermercado.getCodigo());
 
 		int qtd = stmt.executeUpdate();		
 

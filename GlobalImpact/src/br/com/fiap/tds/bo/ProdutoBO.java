@@ -12,10 +12,22 @@ import br.com.fiap.tds.factory.DaoFactory;
 import br.com.fiap.tds.to.ProdutoTO;
 import br.com.fiap.tds.to.SupermercadoTO;
 
+/**
+ * Classe que contem as regras de negocios e validacoes do produto
+ * @author Diego
+ *
+ */
 public class ProdutoBO {
 	
 	private ProdutoDAO produtoDao;
 	
+	/**
+	 * Construtor que inicializa a conexao
+	 * @throws ClassNotFoundException
+	 * @throws FileNotFoundException
+	 * @throws SQLException
+	 * @throws IOException
+	 */
 	public ProdutoBO() throws ClassNotFoundException, FileNotFoundException, SQLException, IOException{
 		produtoDao = DaoFactory.getProdutoDAO();
 	}

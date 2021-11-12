@@ -3,6 +3,7 @@ package br.com.fiap.tds.view.telefone;
 import java.util.Scanner;
 
 import br.com.fiap.tds.bo.TelefoneBO;
+import br.com.fiap.tds.dao.oracle.TelefoneOracleDAO;
 import br.com.fiap.tds.to.SupermercadoTO;
 import br.com.fiap.tds.to.TelefoneTO;
 
@@ -31,7 +32,7 @@ public class TelefoneCadastrar {
 			
 						
 			System.out.println("Digite o ddi: ");
-			int ddi = (leitor.nextInt());
+			String ddi = (leitor.next() + leitor.nextLine());
 			
 			System.out.println("Digite o ddd: ");
 			int ddd = (leitor.nextInt());
@@ -41,9 +42,6 @@ public class TelefoneCadastrar {
 			
 			
 			TelefoneTO endereco = new TelefoneTO(ddi, ddd, tel, supermercado);
-			
-//			conexao = ConnectionManager.getInstance().getConnection();
-
 			
 			TelefoneBO bo = new TelefoneBO();
 			

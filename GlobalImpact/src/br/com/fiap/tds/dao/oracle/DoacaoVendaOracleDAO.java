@@ -8,6 +8,11 @@ import br.com.fiap.tds.dao.DoacaoVendaDAO;
 import br.com.fiap.tds.exception.IdNotFoundException;
 import br.com.fiap.tds.to.DoacaoVendaTO;
 
+/**
+ * Classe que realiza operacoes basicas com a doacao/venda no banco
+ * @author Diego
+ *
+ */
 public class DoacaoVendaOracleDAO implements DoacaoVendaDAO{
 
 	private Connection conexao;

@@ -2,7 +2,9 @@ package br.com.fiap.tds.to;
 
 public class TelefoneTO {
 
-	private int idTelefone, ddi, ddd, numeroTel;
+	private int idTelefone, ddd, numeroTel;
+	
+	private String ddi;
 	
 	private SupermercadoTO supermercado;
 
@@ -10,7 +12,7 @@ public class TelefoneTO {
 
 	}
 
-	public TelefoneTO(int ddi, int ddd, int numeroTel, SupermercadoTO supermercado) {
+	public TelefoneTO(String ddi, int ddd, int numeroTel, SupermercadoTO supermercado) {
 		super();
 		this.ddi = ddi;
 		this.ddd = ddd;
@@ -20,15 +22,14 @@ public class TelefoneTO {
 	
 	
 
-	public TelefoneTO(int idTelefone, int ddi, int ddd, int numeroTel) {
+	public TelefoneTO(String ddi, int ddd, int numeroTel, int idTelefone) {
 		super();
-		this.idTelefone = idTelefone;
 		this.ddi = ddi;
 		this.ddd = ddd;
 		this.numeroTel = numeroTel;
+		this.idTelefone = idTelefone;
 	}	
 
-	
 
 	public int getIdTelefone() {
 		return idTelefone;
@@ -38,11 +39,11 @@ public class TelefoneTO {
 		this.idTelefone = idTelefone;
 	}
 
-	public int getDdi() {
+	public String getDdi() {
 		return ddi;
 	}
 
-	public void setDdi(int ddi) {
+	public void setDdi(String ddi) {
 		this.ddi = ddi;
 	}
 

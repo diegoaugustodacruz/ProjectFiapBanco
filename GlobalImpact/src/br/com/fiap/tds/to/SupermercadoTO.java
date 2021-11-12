@@ -14,14 +14,12 @@ public class SupermercadoTO {
 	
 	private String email;
 	
-	private String senha;
-	
+	private String senha;	
 	
 	public SupermercadoTO() {
 		
 	}
-
-
+	
 	public SupermercadoTO(int codigo, String nome, String ativo, String dataCadastro, String cnpj, String email,
 			String senha) {
 		super();
@@ -32,7 +30,7 @@ public class SupermercadoTO {
 		this.cnpj = cnpj;
 		this.email = email;
 		this.senha = senha;
-	}
+	}	
 	
 	public SupermercadoTO(String nome, String cnpj, String email,
 			String senha) {
@@ -42,7 +40,16 @@ public class SupermercadoTO {
 		this.email = email;
 		this.senha = senha;
 	}
+
 	
+	public SupermercadoTO(int codigo, String nome, String cnpj, String email, String senha) {
+		super();
+		this.codigo = codigo;
+		this.nome = nome;
+		this.cnpj = cnpj;
+		this.email = email;
+		this.senha = senha;
+	}
 
 
 	public int getCodigo() {

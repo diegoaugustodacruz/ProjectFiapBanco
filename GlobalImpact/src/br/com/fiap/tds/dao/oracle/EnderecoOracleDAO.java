@@ -13,7 +13,7 @@ import br.com.fiap.tds.to.EnderecoTO;
 
 /**
  * Classe que realiza operacoes basicas com o endereco no banco
- * @author Endorfina
+ * @author Diego
  *
  */
 public class EnderecoOracleDAO implements EnderecoDAO{

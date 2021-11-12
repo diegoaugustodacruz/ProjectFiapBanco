@@ -16,7 +16,7 @@ import br.com.fiap.tds.to.TelefoneTO;
 
 /**
  * Classe que contem as regras de negocios e validacoes do telefone
- * @author Endorfina
+ * @author Diego
  *
  */
 public class TelefoneBO {
@@ -27,11 +27,11 @@ public class TelefoneBO {
 
 	
 	/**
-	 * Construtor que recebe a conexao
+	 * Construtor que incializa a conexao
 	 * @param conexao
 	 */
 	public TelefoneBO() throws ClassNotFoundException, FileNotFoundException, SQLException, IOException{
-		telefoneDao = DaoFactory.getTelefoneDAO();
+		this.telefoneDao = DaoFactory.getTelefoneDAO();
 		this.supermercadoDao = DaoFactory.getSupermercadoDAO();
 		this.conexao = ConnectionManager.getInstance().getConnection();
 	}
@@ -120,7 +120,6 @@ public class TelefoneBO {
 	private void validar(TelefoneTO telefone) throws SQLException, DadosInvalidosException{
 		String numeroTelefone = Integer.toString(telefone.getNumeroTel());
 		String numeroDDD = Integer.toString(telefone.getDdd());
-		String numeroDDI = Integer.toString(telefone.getDdi());
 
 		if(numeroTelefone == null || numeroTelefone.length()>9) {
 			throw new DadosInvalidosException("Numero telefone é obrigatorio e deve conter 9 algarismos");
@@ -130,7 +129,7 @@ public class TelefoneBO {
 			throw new DadosInvalidosException("Numero ddd é obrigatorio e deve conter 3 algarismos");
 		}
 		
-		if(numeroDDI == null || numeroDDI.length()>3) {
+		if(telefone.getDdi() == null || telefone.getDdi().length()>3) {
 			throw new DadosInvalidosException("Numero ddi é obrigatorio e deve conter 3 algarismos");
 		}
 	}

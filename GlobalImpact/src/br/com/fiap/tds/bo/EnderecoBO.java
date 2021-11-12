@@ -16,7 +16,7 @@ import br.com.fiap.tds.to.EnderecoTO;
 
 /**
  * Classe que contem as regras de negocios e validacoes do endereco
- * @author Endorfina
+ * @author Diego
  *
  */
 public class EnderecoBO {
@@ -27,8 +27,11 @@ public class EnderecoBO {
 
 
 	/**
-	 * Construtor padrao
-	 * 
+	 * Construtor que inicializa a conexao
+	 * @throws ClassNotFoundException
+	 * @throws FileNotFoundException
+	 * @throws SQLException
+	 * @throws IOException
 	 */
 	public EnderecoBO() throws ClassNotFoundException, FileNotFoundException, SQLException, IOException{
 		this.enderecoDao = DaoFactory.getEnderecoDAO();

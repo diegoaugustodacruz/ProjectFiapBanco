@@ -79,7 +79,7 @@ public class TelefoneOracleDAO implements TelefoneDAO{
 		stmt.setInt(1, telefone.getSupermercado().getCodigo());
 		stmt.setInt(2, telefone.getNumeroTel());
 		stmt.setInt(3, telefone.getDdd());
-		stmt.setInt(4, telefone.getDdi());
+		stmt.setString(4, telefone.getDdi());
 		
 		stmt.executeUpdate();
 	}
@@ -95,11 +95,10 @@ public class TelefoneOracleDAO implements TelefoneDAO{
 	public void atualizar(TelefoneTO telefone) throws SQLException, IdNotFoundException{
 		pesquisar(telefone.getIdTelefone());
 		
-		PreparedStatement stmt = conexao.prepareStatement("UPDATE T_TELEFONE SET NR_NUMERO = ?, NR_DDD = ?,"
-				+ " NR_DDI = ? WHERE CD_TELEFONE = ?");
-		stmt.setInt(1, telefone.getNumeroTel());
-		stmt.setInt(2, telefone.getDdi());
-		stmt.setInt(3, telefone.getDdi());
+		PreparedStatement stmt = conexao.prepareStatement("UPDATE T_TELEFONE SET CD_DDI = ?, CD_DDD = ?, NR_TELEFONE = ? WHERE CD_TELEFONE = ?");
+		stmt.setString(1, telefone.getDdi());
+		stmt.setInt(2, telefone.getDdd());
+		stmt.setInt(3, telefone.getNumeroTel());
 		stmt.setInt(4, telefone.getIdTelefone());
 
 		int qtd = stmt.executeUpdate();		
@@ -167,11 +166,11 @@ public class TelefoneOracleDAO implements TelefoneDAO{
 	private TelefoneTO parse(ResultSet result) throws SQLException {
 
 		int id = result.getInt("CD_TELEFONE");
-		int numeroTel = result.getInt("NR_NUMERO");
-		int numeroDDD = result.getInt("NR_DDD");
-		int numeroDDI = result.getInt("NR_DDI");
+		int numeroTel = result.getInt("NR_TELEFONE");
+		int numeroDDD = result.getInt("CD_DDD");
+		String numeroDDI = result.getString("CD_DDI");
 		
-		TelefoneTO telefone = new TelefoneTO(id, numeroDDI, numeroDDD, numeroTel);
+		TelefoneTO telefone = new TelefoneTO(numeroDDI, numeroDDD, numeroTel, id);
 		
 		return telefone;			
 	}
