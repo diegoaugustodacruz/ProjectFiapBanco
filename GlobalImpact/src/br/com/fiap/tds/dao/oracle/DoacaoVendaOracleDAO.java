@@ -30,7 +30,7 @@ public class DoacaoVendaOracleDAO implements DoacaoVendaDAO{
 	public void cadastrar(DoacaoVendaTO doacaoVenda) throws SQLException {
 		PreparedStatement stmt = conexao.prepareStatement("INSERT INTO T_DOACAO_VENDA "
 				+ "(CD_DOACAO_VENDA, CD_SUPERMERCADO, CD_PRODUTO) "
-				+ "VALUES (SQ_T_DOACAO_VENDA, ?, ?)");
+				+ "VALUES (SQ_T_DOACAO_VENDA.NEXTVAL, ?, ?)");
 		
 		stmt.setInt(1, doacaoVenda.getSupermercado().getCodigo());
 		stmt.setInt(2, doacaoVenda.getProduto().getIdProduto());
@@ -57,6 +57,11 @@ public class DoacaoVendaOracleDAO implements DoacaoVendaDAO{
 		if(qtd == 0) {
 			throw new IdNotFoundException("Doacao/Venda não encontrada para ser removido");
 		}
+	}
+	
+	@Override
+	protected void finalize() throws Throwable{
+		conexao.close();
 	}
 	
 }

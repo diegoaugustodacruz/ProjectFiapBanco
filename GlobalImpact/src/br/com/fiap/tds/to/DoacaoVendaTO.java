@@ -21,6 +21,11 @@ public class DoacaoVendaTO {
 		this.idDoacaoVenda = idDoacaoVenda;
 	}
 
+	public DoacaoVendaTO(SupermercadoTO supermercado, ProdutoTO produto) {
+		super();
+		this.supermercado = supermercado;
+		this.produto = produto;
+	}
 
 
 	public SupermercadoTO getSupermercado() {

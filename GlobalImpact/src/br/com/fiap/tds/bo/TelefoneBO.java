@@ -11,6 +11,7 @@ import br.com.fiap.tds.dao.TelefoneDAO;
 import br.com.fiap.tds.exception.DadosInvalidosException;
 import br.com.fiap.tds.exception.IdNotFoundException;
 import br.com.fiap.tds.factory.DaoFactory;
+import br.com.fiap.tds.singleton.ConnectionManager;
 import br.com.fiap.tds.to.TelefoneTO;
 
 /**
@@ -29,9 +30,10 @@ public class TelefoneBO {
 	 * Construtor que recebe a conexao
 	 * @param conexao
 	 */
-	public TelefoneBO(Connection conexao) throws ClassNotFoundException, FileNotFoundException, SQLException, IOException{
+	public TelefoneBO() throws ClassNotFoundException, FileNotFoundException, SQLException, IOException{
 		telefoneDao = DaoFactory.getTelefoneDAO();
-		this.conexao = conexao;
+		this.supermercadoDao = DaoFactory.getSupermercadoDAO();
+		this.conexao = ConnectionManager.getInstance().getConnection();
 	}
 	
 	/**

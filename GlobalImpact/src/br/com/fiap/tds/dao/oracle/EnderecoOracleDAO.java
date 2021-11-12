@@ -203,4 +203,9 @@ public class EnderecoOracleDAO implements EnderecoDAO{
 			throw new IdNotFoundException("Endereco não encontrado para ser removido");
 		}
 	}
+	
+	@Override
+	protected void finalize() throws Throwable{
+		conexao.close();
+	}
 }

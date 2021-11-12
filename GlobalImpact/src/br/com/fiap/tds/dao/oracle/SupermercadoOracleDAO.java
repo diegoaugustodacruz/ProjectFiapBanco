@@ -204,4 +204,9 @@ public class SupermercadoOracleDAO implements SupermercadoDAO{
 		}
 	}
 	
+	@Override
+	protected void finalize() throws Throwable{
+		conexao.close();
+	}
+	
 }

@@ -206,5 +206,10 @@ public class ProdutoOracleDAO implements ProdutoDAO{
 			throw new IdNotFoundException("Produto não encontrado para ser removido");
 		}
 	}
+	
+	@Override
+	protected void finalize() throws Throwable{
+		conexao.close();
+	}
 
 }

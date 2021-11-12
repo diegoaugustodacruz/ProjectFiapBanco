@@ -11,6 +11,7 @@ import br.com.fiap.tds.dao.SupermercadoDAO;
 import br.com.fiap.tds.exception.DadosInvalidosException;
 import br.com.fiap.tds.exception.IdNotFoundException;
 import br.com.fiap.tds.factory.DaoFactory;
+import br.com.fiap.tds.singleton.ConnectionManager;
 import br.com.fiap.tds.to.EnderecoTO;
 
 /**
@@ -26,12 +27,13 @@ public class EnderecoBO {
 
 
 	/**
-	 * Construtor que recebe a conexao
-	 * @param conexao
+	 * Construtor padrao
+	 * 
 	 */
-	public EnderecoBO(Connection conexao) throws ClassNotFoundException, FileNotFoundException, SQLException, IOException{
+	public EnderecoBO() throws ClassNotFoundException, FileNotFoundException, SQLException, IOException{
 		this.enderecoDao = DaoFactory.getEnderecoDAO();
-		this.conexao = conexao;
+		this.supermercadoDao = DaoFactory.getSupermercadoDAO();
+		this.conexao = ConnectionManager.getInstance().getConnection();
 
 	}	
 	

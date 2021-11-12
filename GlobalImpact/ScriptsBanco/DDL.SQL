@@ -3,15 +3,13 @@ Andrey Fernandez Garcia - RM: 87219
 Diego Augusto da Cruz - RM 86877
 Emily Keyt Manfrin - RM: 87198
 Giovana Nelo Furlan - RM: 88936
-João Victor de Jesus Martins Silva - RM: 89087
+Joao Victor de Jesus Martins Silva - RM: 89087
 */
-
-
 
 CREATE TABLE t_doacao_venda (
     cd_doacao_venda  NUMBER(9) NOT NULL,
-    cd_supermercado  NUMBER(9) NOT NULL,
-    cd_produto       NUMBER(9) NOT NULL
+    cd_produto       NUMBER(9) NOT NULL,
+    cd_supermercado  NUMBER(9) NOT NULL
 );
 
 ALTER TABLE t_doacao_venda ADD CONSTRAINT t_doacao_venda_pk PRIMARY KEY ( cd_doacao_venda );
@@ -26,7 +24,7 @@ CREATE TABLE t_endereco (
     nm_bairro            VARCHAR2(50) NOT NULL,
     nm_cidade            VARCHAR2(50) NOT NULL,
     nm_estado            VARCHAR2(50) NOT NULL,
-    sg_estado            CHAR(2) NOT NULL,
+    sg_estado            CHAR(2),
     ds_ponto_referencia  VARCHAR2(90)
 );
 
@@ -42,7 +40,7 @@ CREATE TABLE t_produto (
     dt_validade   DATE NOT NULL,
     vl_unitario   NUMBER(9, 2) NOT NULL,
     vl_total      NUMBER(9, 2) NOT NULL,
-    ds_promocao1  VARCHAR2(70)
+    ds_promocao   VARCHAR2(70)
 );
 
 ALTER TABLE t_produto ADD CONSTRAINT t_produto_pk PRIMARY KEY ( cd_produto );
@@ -60,17 +58,17 @@ CREATE TABLE t_supermercados (
 );
 
 ALTER TABLE t_supermercados
-    ADD CONSTRAINT t_super_st_ativo_ck CHECK ( st_ativo IN ( 'ativo', 'inativo' ) );
+    ADD CONSTRAINT "T_SUPER(st_ativo)_CK" CHECK ( st_ativo IN ( 'ATIVO','INATIVO' ) );
 
 ALTER TABLE t_supermercados ADD CONSTRAINT t_supermercados_pk PRIMARY KEY ( cd_supermercado );
 
-ALTER TABLE t_supermercados ADD CONSTRAINT t_super_cnpj_un UNIQUE ( nr_cnpj );
+ALTER TABLE t_supermercados ADD CONSTRAINT t_super_un UNIQUE ( nr_cnpj );
 
 CREATE TABLE t_telefone (
     cd_telefone      NUMBER(9) NOT NULL,
     cd_supermercado  NUMBER(9) NOT NULL,
-    nr_ddi           VARCHAR2(3) NOT NULL,
-    nr_ddd           NUMBER(3) NOT NULL,
+    cd_ddi           VARCHAR2(3) NOT NULL,
+    cd_ddd           NUMBER(3) NOT NULL,
     nr_telefone      NUMBER(15) NOT NULL,
     tp_telefone      VARCHAR2(20)
 );
@@ -78,21 +76,20 @@ CREATE TABLE t_telefone (
 ALTER TABLE t_telefone ADD CONSTRAINT t_telefone_pk PRIMARY KEY ( cd_telefone );
 
 ALTER TABLE t_doacao_venda
-    ADD CONSTRAINT t_doa_venda_produto_fk FOREIGN KEY ( cd_produto )
+    ADD CONSTRAINT t_doa_vend_prod_fk FOREIGN KEY ( cd_produto )
         REFERENCES t_produto ( cd_produto );
 
 ALTER TABLE t_doacao_venda
-    ADD CONSTRAINT t_doa_venda_super_fk FOREIGN KEY ( cd_supermercado )
+    ADD CONSTRAINT t_doa_vend_super_fk FOREIGN KEY ( cd_supermercado )
         REFERENCES t_supermercados ( cd_supermercado );
 
 ALTER TABLE t_endereco
-    ADD CONSTRAINT t_end_super_fk FOREIGN KEY ( cd_supermercado )
+    ADD CONSTRAINT t_end_t_super_fk FOREIGN KEY ( cd_supermercado )
         REFERENCES t_supermercados ( cd_supermercado );
 
 ALTER TABLE t_telefone
     ADD CONSTRAINT t_tel_super_fk FOREIGN KEY ( cd_supermercado )
         REFERENCES t_supermercados ( cd_supermercado );
-
 
 
 CREATE SEQUENCE SQ_T_SUPERMERCADO
@@ -109,7 +106,7 @@ NOMAXVALUE
 NOCACHE
 NOCYCLE;
 
-CREATE SEQUENCE SQ_T_ENDEREÇO
+CREATE SEQUENCE SQ_T_ENDERECO
 START WITH 1
 INCREMENT BY 1
 NOMAXVALUE
@@ -129,11 +126,4 @@ INCREMENT BY 1
 NOMAXVALUE
 NOCACHE
 NOCYCLE;
-
-COMMIT;
-
-
-
-
-
 

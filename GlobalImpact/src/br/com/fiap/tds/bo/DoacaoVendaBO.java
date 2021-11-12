@@ -11,6 +11,7 @@ import br.com.fiap.tds.dao.SupermercadoDAO;
 import br.com.fiap.tds.exception.DadosInvalidosException;
 import br.com.fiap.tds.exception.IdNotFoundException;
 import br.com.fiap.tds.factory.DaoFactory;
+import br.com.fiap.tds.singleton.ConnectionManager;
 import br.com.fiap.tds.to.DoacaoVendaTO;
 
 public class DoacaoVendaBO {
@@ -21,9 +22,11 @@ public class DoacaoVendaBO {
 	private Connection conexao;
 
 	
-	public DoacaoVendaBO(Connection conexao) throws ClassNotFoundException, FileNotFoundException, SQLException, IOException{
+	public DoacaoVendaBO() throws ClassNotFoundException, FileNotFoundException, SQLException, IOException{
 		doacaoVendaDao = DaoFactory.getDoacaoVendaDAO();
-		this.conexao = conexao;
+		supermercadoDao = DaoFactory.getSupermercadoDAO();
+		produtoDao = DaoFactory.getProdutoDAO();		
+		this.conexao = ConnectionManager.getInstance().getConnection();
 
 
 	}
@@ -35,19 +38,19 @@ public class DoacaoVendaBO {
 	 * @throws DadosInvalidosException
 	 */
 	public void cadastrar(DoacaoVendaTO doacaoVenda) throws SQLException, DadosInvalidosException{
-		conexao.setAutoCommit(false);
+//		conexao.setAutoCommit(false);
 		
 		supermercadoDao.cadastrar(doacaoVenda.getSupermercado());
 		produtoDao.cadastrar(doacaoVenda.getProduto());		
 
 		doacaoVendaDao.cadastrar(doacaoVenda);
 		
-		try {
-			conexao.commit();
-		}catch(Exception e) {
-			conexao.rollback();
-			throw new SQLException("Erro ao realizar commit");
-		}
+//		try {
+//			conexao.commit();
+//		}catch(Exception e) {
+//			conexao.rollback();
+//			throw new SQLException("Erro ao realizar commit");
+//		}
 	}
 	
 	/**

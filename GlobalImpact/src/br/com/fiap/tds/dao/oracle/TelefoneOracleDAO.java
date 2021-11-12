@@ -73,8 +73,8 @@ public class TelefoneOracleDAO implements TelefoneDAO{
 	public void cadastrar(TelefoneTO telefone) throws SQLException {
 
 		PreparedStatement stmt = conexao.prepareStatement("INSERT INTO T_TELEFONE "
-				+ "(CD_TELEFONE, CD_SUPERMERCADO, NR_NUMERO, NR_DDD, NR_DDI)"
-				+ " VALUES (SQ_ENDORF_TEL.NEXTVAL, ?, ?, ?, ?)");
+				+ "(CD_TELEFONE, CD_SUPERMERCADO, NR_TELEFONE, CD_DDD, CD_DDI) "
+				+ "VALUES (SQ_ENDORF_TEL.NEXTVAL, ?, ?, ?, ?)");
 		
 		stmt.setInt(1, telefone.getSupermercado().getCodigo());
 		stmt.setInt(2, telefone.getNumeroTel());
@@ -196,4 +196,8 @@ public class TelefoneOracleDAO implements TelefoneDAO{
 		}
 	}
 	
+	@Override
+	protected void finalize() throws Throwable{
+		conexao.close();
+	}
 }

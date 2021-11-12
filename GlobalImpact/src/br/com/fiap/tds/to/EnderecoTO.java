@@ -37,6 +37,18 @@ public class EnderecoTO {
 		this.estado = estado;
 		this.numeroCEP = numeroCEP;
 	}
+	
+	public EnderecoTO(int numeroCasa, String nomeRua, String bairro, String cidade, String estado,
+			String numeroCEP, SupermercadoTO supermercado) {
+		super();
+		this.numeroCasa = numeroCasa;
+		this.nomeRua = nomeRua;
+		this.bairro = bairro;
+		this.cidade = cidade;
+		this.estado = estado;
+		this.numeroCEP = numeroCEP;
+		this.supermercado = supermercado;
+	}
 
 
 	public int getIdEndereco() {

@@ -33,6 +33,16 @@ public class SupermercadoTO {
 		this.email = email;
 		this.senha = senha;
 	}
+	
+	public SupermercadoTO(String nome, String cnpj, String email,
+			String senha) {
+		super();
+		this.nome = nome;
+		this.cnpj = cnpj;
+		this.email = email;
+		this.senha = senha;
+	}
+	
 
 
 	public int getCodigo() {
