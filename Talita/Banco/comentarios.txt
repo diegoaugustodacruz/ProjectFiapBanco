@@ -1,0 +1,7 @@
+id tem que ser numero e nao varchar
+
+ds_tipo_transacao Date?
+
+tirar endereco e conta da tabela usuario
+
+qual nome das sequences para por no dao?
